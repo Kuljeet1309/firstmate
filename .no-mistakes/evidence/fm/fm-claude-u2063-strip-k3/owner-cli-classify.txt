@@ -1,0 +1,20 @@
+# bin/fm-operational-input.sh classify / body: base (43bf6d3) vs target (e732ca7)
+# Input rows as a Claude Code 2.1.277+ transcript records them (U+2063 removed), plus near misses.
+# construct still emits the mark:  342 201 243   F   I   R   S   T   M   A   T   E   _   O   P   :
+input (U+2063 shown as <U+2063>)                                         | base classify      | target classify    | target body
+<U+2063>FIRSTMATE_OP: v1 away-supervisor: Supervisor escalate (1 event(s)): done | away-supervisor    | away-supervisor    | Supervisor escalate (1 event(s)): done
+FIRSTMATE_OP: v1 away-supervisor: Supervisor escalate (1 event(s)): done | (rejected, rc=1)   | away-supervisor    | Supervisor escalate (1 event(s)): done
+FIRSTMATE_OP: v1 watcher: signal: probe.status changed                   | (rejected, rc=1)   | watcher            | signal: probe.status changed
+FIRSTMATE_OP: v1 launch-brief: # Task                                    | (rejected, rc=1)   | launch-brief       | # Task
+FIRSTMATE_OP: v1 session-start: Run bin/fm-session-start.sh              | (rejected, rc=1)   | session-start      | Run bin/fm-session-start.sh
+FIRSTMATE_OP: v1 turn-end-guard: stop check                              | (rejected, rc=1)   | turn-end-guard     | stop check
+FIRSTMATE_OP: v1 branch-outcome: merged                                  | (rejected, rc=1)   | branch-outcome     | merged
+FIRSTMATE_OP: v1 not-a-kind: captain-authored text                       | (rejected, rc=1)   | (rejected, rc=1)   | -
+FIRSTMATE_OP: v2 away-supervisor: unknown version                        | (rejected, rc=1)   | (rejected, rc=1)   | -
+FIRSTMATE_OP: v1 away-supervisor:                                        | (rejected, rc=1)   | (rejected, rc=1)   | -
+FIRSTMATE_OP: v1 away-supervisor                                         | (rejected, rc=1)   | (rejected, rc=1)   | -
+FIRSTMATE_OP: untyped ascii                                              | (rejected, rc=1)   | (rejected, rc=1)   | -
+ FIRSTMATE_OP: v1 away-supervisor: leading space                         | (rejected, rc=1)   | (rejected, rc=1)   | -
+firstmate_op: v1 away-supervisor: lower case                             | (rejected, rc=1)   | (rejected, rc=1)   | -
+Quote: FIRSTMATE_OP: v1 away-supervisor: text before the header          | (rejected, rc=1)   | (rejected, rc=1)   | -
+how's it going?                                                          | (rejected, rc=1)   | (rejected, rc=1)   | -

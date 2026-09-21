@@ -1,0 +1,47 @@
+ok - Claude Code 2.1.278 (Claude Code) with the flag unset: no hooks module, no /calm, stock working row, stock tool rows, preference on ignored
+
+ ▐▛███▛█   Claude Code v2.1.278
+▝▜██████▀  Haiku 4.5 · Claude Max
+  ▝▝ ▝▝    /tmp/fm-calm-claude-live.QIm2Yk/project
+
+▎ Debug mode enabled · logging to /tmp/fm-calm-claude-live.QIm2Yk/debug-on.log
+
+❯ Run this exact bash command with the Bash tool: sleep 5; cat notes.txt   Then reply with one short sentence naming the three words.
+
+● The three words are alpha, beta, and gamma.
+
+✻ Cooked for 11s · done 2:27 PM
+
+❯ FIRSTMATE_OP: v1 watcher: signal: /tmp/fm-calm-claude-live.QIm2Yk/state/probe.status changed. Reply with exactly OPERATIONAL_PROCESSED and nothing else.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              ◿│◣
+▄▃▃▃▂▂▂▁▁▁▁▁▁╲▁▁▁╱▁▁▁▁▁▂▂▃▃▃▄▄▄▄▄▃▃▃▂▂▁▁▁▁▁▁▂▂▂▃▃▃▄▄▄▄▄▄▄▃▃▃▂▂▁▁▁▁▁▁▂▂▂▃▃▃▄▄▄▄▄▃▃▃▂▂▂▁▁▁▁▁▁▂▂▃▃▃▄▄▄▄▄▄▃▃▂▂▁▁▁▁▁▁▂▂▃▃▃▄▄▄▄▄▄▄▃▃▃▂▂▁▁▁▁▁▁▁▂▂▂▃▃▃▄▄▄▄▄▄▃▃▂▂▁▁▁▁▁▂
+                                                                                                Removed 1 invisible character · review and press Enter to send
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Haiku 4.5 | project | ctx:[██░░░░░░░░] 18% | 36k/200k | 5h:[█░░░░░░░░░] 14% | 7d:[████░░░░░░] 36%
+  ⏵⏵ bypass permissions on (shift+tab to cycle) · ← for agents
+not ok - the operational user row drew while Calm was on
+exit=1

@@ -1,0 +1,11 @@
+argv launch prompt first bytes:  e2 81 a3 46 49 52 53 54 4d 41 54 45 5f 4f 50 3a
+launch transcript row first bytes:  46 49 52 53 54 4d 41 54 45 5f 4f 50 3a 20 76 31
+launch row owner classify: launch-brief
+ok - argv launch-brief envelope: sent without any Enter, recorded mark-less, classifies launch-brief, row hidden under Calm, answer visible
+ok - captain near miss stays visible under Calm (owner classify: none): FIRSTMATE_OP: v1 not-a-kind: captain-authored text NEARMISS_A. Reply with exactly ACK_A and nothing else.
+ok - captain near miss stays visible under Calm (owner classify: none): Quote: FIRSTMATE_OP: v1 away-supervisor: NEARMISS_B text before the header. Reply with exactly ACK_B and nothing else.
+ok - captain near miss stays visible under Calm (owner classify: none): FIRSTMATE_OP: v2 away-supervisor: NEARMISS_C later version. Reply with exactly ACK_C and nothing else.
+ok - typed exact mark-less header (owner classify: watcher) draws at zero height, answer ACK_D visible
+ok - /calm off restores the hidden launch-brief and exact-header rows
+final preference: on
+exit=0

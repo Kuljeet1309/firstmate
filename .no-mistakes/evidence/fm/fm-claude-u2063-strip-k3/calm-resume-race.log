@@ -1,0 +1,8 @@
+run 1:  +0s:[op,]  +0.5s:[op,]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 2.5s; module-loaded log line: 2026-09-21T14:29:33.396Z
+run 2:  +0s:[hidden]  +0.5s:[hidden]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 3.7s; module-loaded log line: 2026-09-21T14:29:42.872Z
+run 3:  +0s:[op,]  +0.5s:[op,]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 2.2s; module-loaded log line: 2026-09-21T14:29:54.601Z
+run 4:  +0s:[hidden]  +0.5s:[hidden]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 3.1s; module-loaded log line: 2026-09-21T14:30:03.835Z
+run 5:  +0s:[hidden]  +0.5s:[hidden]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 4.2s; module-loaded log line: 2026-09-21T14:30:15.092Z
+run 6:  +0s:[op,]  +0.5s:[op,]  +1s:[op,]  +2s:[hidden]  +4s:[hidden]  transcript shown after 3.6s; module-loaded log line: 2026-09-21T14:30:28.233Z
+run 7:  +0s:[hidden]  +0.5s:[hidden]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 3.6s; module-loaded log line: 2026-09-21T14:30:37.974Z
+run 8:  +0s:[op,]  +0.5s:[op,]  +1s:[hidden]  +2s:[hidden]  +4s:[hidden]  transcript shown after 2.3s; module-loaded log line: 2026-09-21T14:30:49.376Z

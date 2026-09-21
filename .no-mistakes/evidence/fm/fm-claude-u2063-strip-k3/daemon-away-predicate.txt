@@ -1,0 +1,7 @@
+# bin/fm-supervise-daemon.sh away-exit predicate with the away posture active (state/.afk present)
+FIRSTMATE_OP: v1 away-supervisor: Supervisor escalate (1 event(s)): done -> stay afk (internal)      | stripped: Supervisor escalate (1 event(s)): done
+FIRSTMATE_OP: v1 bogus-kind: hello                                     -> exit afk (captain back)  | stripped: FIRSTMATE_OP: v1 bogus-kind: hello
+Captain here: FIRSTMATE_OP: v1 away-supervisor: quoted                 -> exit afk (captain back)  | stripped: Captain here: FIRSTMATE_OP: v1 away-supervisor: quoted
+FIRSTMATE_OP: v2 away-supervisor: later version                        -> exit afk (captain back)  | stripped: FIRSTMATE_OP: v2 away-supervisor: later version
+/afk back in an hour                                                   -> stay afk (internal)      | stripped: /afk back in an hour
+status update please                                                   -> exit afk (captain back)  | stripped: status update please

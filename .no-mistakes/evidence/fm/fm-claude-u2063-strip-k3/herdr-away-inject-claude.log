@@ -1,0 +1,32 @@
+lab session: fm-lab-away-claude-1632669-29936
+inject_msg rc=0 after 5.01s (FM_SUPERVISOR_BACKEND=herdr, target fm-lab-away-claude-1632669-29936:w1:p1)
+--- daemon log
+(empty: no deferral or failure logged)
+--- hold hint frames seen during delivery
+frames showing the strip hint: 15
+
+                                                       Removed 1 invisible character · review and press Enter to send
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+--- final visible pane
+
+
+
+
+
+
+
+
+                                                       Removed 1 invisible character · review and press Enter to send
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Haiku 4.5 | project | ctx:[██████████] 200000%
+  ⏵⏵ bypass permissions on (shift+tab to cycle) · ← for agents
+--- transcript user row (hex of first 20 bytes, then text)
+ 46 49 52 53 54 4d 41 54 45 5f 4f 50 3a 20 76 31
+ 20 61 77 61
+FIRSTMATE_OP: v1 away-supervisor: Supervisor escalate (1 event(s)): AWAY_HERDR_PROBE escalation. Reply with exactly AWAY_HERDR_OK and nothing else.
+owner classify: away-supervisor
+ok - Herdr (herdr 0.9.1) lab fm-lab-away-claude-1632669-29936: the daemon's inject_msg confirmed delivery into Claude Code (2.1.278 (Claude Code)), the model answered AWAY_HERDR_OK, and the transcript row arrived without its U+2063 mark and classifies as away-supervisor
+teardown of fm-lab-away-claude-1632669-29936 ok (default-session tripwire unchanged)
+exit=0
