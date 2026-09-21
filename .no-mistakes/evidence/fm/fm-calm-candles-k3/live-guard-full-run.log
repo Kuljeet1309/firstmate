@@ -1,0 +1,5 @@
+ok - Claude Code 2.1.278 (Claude Code) with the flag unset: no hooks module, no /calm, stock working row, stock tool rows, preference on ignored
+ok - Claude Code 2.1.278 (Claude Code) draws the chosen candles scene in the working row in the theme's green and red, scrolls it, and removes it when the turn settles
+2026-09-21T11:42:20.565Z [ERROR] $.fs.read (firstmate-calm): /tmp/fm-calm-claude-live.FXLWMp/fmhome/config/calm-scene failed: ENOENT: no such file or directory, open '/tmp/fm-calm-claude-live.FXLWMp/fmhome/config/calm-scene'
+not ok - Claude Code 2.1.278 (Claude Code) loaded the Calm mod with a warning or error
+EXIT=1

@@ -1,0 +1,2 @@
+2026-09-21T11:51:21.226Z [WARN] plugin firstmate-calm: options requested but its manifest declares no userConfig; every option reads as absent
+2026-09-21T11:51:22.549Z [ERROR] $.fs.read (firstmate-calm): /tmp/fm-calm-candles-lab/fmhome/config/calm-scene failed: ENOENT: no such file or directory, open '/tmp/fm-calm-candles-lab/fmhome/config/calm-scene'

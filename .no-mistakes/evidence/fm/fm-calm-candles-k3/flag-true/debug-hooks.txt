@@ -1,0 +1,7 @@
+hooks module agents-md@builtin loaded 
+hooks module agents-md@builtin prompt
+hooks module agents-md@builtin session
+hooks module firstmate-calm@skills-dir loaded 
+hooks module firstmate-calm@skills-dir session
+hooks module firstmate-calm@skills-dir turn
+hooks module firstmate-calm@skills-dir ui

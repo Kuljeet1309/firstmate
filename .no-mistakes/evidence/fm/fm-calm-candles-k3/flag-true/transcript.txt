@@ -1,0 +1,2 @@
+flag env: 'CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=true', preference on, scene candles
+settled: answer shown, no working row, no candles, no boat

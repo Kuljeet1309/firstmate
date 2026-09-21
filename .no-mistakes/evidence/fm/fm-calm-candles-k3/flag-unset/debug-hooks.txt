@@ -1,0 +1,6 @@
+hooks module agents-md@builtin loaded 
+hooks module agents-md@builtin prompt
+hooks module agents-md@builtin session
+hooks module firstmate-calm@skills-dir not loaded
+hooks modules are off in this process
+hooks modules not loaded

@@ -1,0 +1,47 @@
+ok - Claude Code 2.1.278 (Claude Code) with the flag unset: no hooks module, no /calm, stock working row, stock tool rows, preference on ignored
+
+ ▐▛███▛█   Claude Code v2.1.278
+▝▜██████▀  Haiku 4.5 · Claude Max
+  ▝▝ ▝▝    /tmp/fm-calm-claude-live.RtwtM5/project
+
+▎ Debug mode enabled · logging to /tmp/fm-calm-claude-live.RtwtM5/debug-candles.log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ Run this exact bash command with the Bash tool: sleep 5; cat notes.txt   Then reply with one short sentence naming the three words.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Haiku 4.5 | project | ctx:[██████████] 200000%
+  ⏵⏵ bypass permissions on (shift+tab to cycle)
+not ok - the candles never replaced the working row
+EXIT=1

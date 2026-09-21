@@ -1,0 +1,49 @@
+ok - Claude Code 2.1.278 (Claude Code) with the flag unset: no hooks module, no /calm, stock working row, stock tool rows, preference on ignored
+ok - Claude Code 2.1.278 (Claude Code) draws the chosen candles scene in the working row in the theme's green and red, scrolls it, and removes it when the turn settles
+
+ ▐▛███▛█   Claude Code v2.1.278
+▝▜██████▀  Haiku 4.5 · Claude Max
+  ▝▝ ▝▝    /tmp/fm-calm-claude-live.Nr9GkG/project
+
+▎ Debug mode enabled · logging to /tmp/fm-calm-claude-live.Nr9GkG/debug-on.log
+
+❯ Run this exact bash command with the Bash tool: sleep 5; cat notes.txt   Then reply with one short sentence naming the three words.
+
+● The three words are alpha, beta, and gamma.
+
+✻ Sautéed for 9s · done 12:09 PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                Removed 1 invisible character · review and press Enter to send
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ FIRSTMATE_OP: v1 watcher: signal: /tmp/fm-calm-claude-live.Nr9GkG/state/probe.status changed. Reply with exactly OPERATIONAL_PROCESSED and nothing else.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Haiku 4.5 | project | ctx:[██░░░░░░░░] 18% | 36k/200k | 5h:[████████░░] 75% | 7d:[███░░░░░░░] 30%
+  ⏵⏵ bypass permissions on (shift+tab to cycle)
+not ok - the operational user row drew while Calm was on
+EXIT=1
+leftover labs: 0

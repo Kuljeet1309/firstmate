@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1379" height="900" viewBox="0 0 1379 900" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace">
+<title>candles narrow resize</title>
+<rect width="100%" height="100%" fill="#1b1b1b"/>
+<text x="10" y="20" fill="#9ab" font-size="13" font-family="system-ui, sans-serif">Calm candles scene live in Claude Code 2.1.278: one turn, pane resized mid-turn (tmux resize-window)</text>
+<text x="10" y="38" fill="#789" font-size="12" font-family="system-ui, sans-serif">Dashed box = the two chart rows; the pane edge is the solid line. Rows never wrap and stay two rows at every width.</text>
+<text x="10" y="64" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 160 columns: 12/12 frames show the chart</text>
+<rect x="10" y="72" width="1348.8" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="105" width="1352.8" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="26.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="43.7" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="60.6" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="77.4" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="94.3" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="111.2" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="128.0" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="144.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="161.7" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="178.6" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="195.5" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="212.3" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="229.2" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="246.0" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="262.9" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="279.8" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="296.6" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="313.5" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="364.1" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="380.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="397.8" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="414.6" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="431.5" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="448.4" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="465.2" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="498.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="515.8" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="549.5" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="583.2" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="600.1" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="617.0" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="633.8" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="650.7" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="667.5" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="684.4" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="701.3" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="751.8" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="768.7" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="785.6" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="802.4" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="819.3" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="836.1" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="853.0" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="869.9" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="920.4" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="954.2" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="971.0" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="987.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="1004.7" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="1021.6" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="1089.0" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="1139.6" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1156.5" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1173.3" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1190.2" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="1207.1" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1223.9" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1240.8" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="1257.6" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="1274.5" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="1291.4" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1308.2" y="118.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1325.1" y="118.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="10.0" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="26.9" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="77.4" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="94.3" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="111.2" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="128.0" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="144.9" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="161.7" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="178.6" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="195.5" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="246.0" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="279.8" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="296.6" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="313.5" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="330.3" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="347.2" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="364.1" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="414.6" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="465.2" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="482.1" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="498.9" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="515.8" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="532.7" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="549.5" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="566.4" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="583.2" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="633.8" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="701.3" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="718.1" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="735.0" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="751.8" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="768.7" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="802.4" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="836.1" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="853.0" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="869.9" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="886.7" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="903.6" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="920.4" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="937.3" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="954.2" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="987.9" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1004.7" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1021.6" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="1038.5" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="1055.3" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="1072.2" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1089.0" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="1105.9" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="1122.8" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="1139.6" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="1207.1" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1223.9" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1240.8" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="1257.6" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="1274.5" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="1291.4" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1308.2" y="135.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="1325.1" y="135.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="524.2" y="152.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux detected · scroll with PgUp/PgDn · or add &#x27;set -g mouse on&#x27; to ~/.tmux.conf for wheel scroll</text>
+<text x="10.0" y="169.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="10" y="204" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 40 columns: 20/20 frames show the chart</text>
+<rect x="10" y="212" width="337.2" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="245" width="341.2" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="26.9" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="43.7" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="60.6" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="77.4" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="94.3" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="111.2" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="128.0" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="144.9" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="161.7" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="178.6" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="195.5" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="212.3" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="229.2" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="246.0" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="262.9" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="279.8" y="258.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="296.6" y="258.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="10.0" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="60.6" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="77.4" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="94.3" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="111.2" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="128.0" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="144.9" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="161.7" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="178.6" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="229.2" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="262.9" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="279.8" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="296.6" y="275.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="313.5" y="275.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="26.9" y="292.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux detected · scroll with PgUp/Pg…</text>
+<text x="10.0" y="309.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────</text>
+<text x="10" y="344" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 12 columns: 17/17 frames show the chart</text>
+<rect x="10" y="352" width="101.2" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="385" width="105.2" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="26.9" y="364.8" fill="#ffffff" font-size="14.0" xml:space="preserve">the three</text>
+<text x="26.9" y="381.8" fill="#ffffff" font-size="14.0" xml:space="preserve">words.</text>
+<text x="10.0" y="398.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="26.9" y="398.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="43.7" y="398.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="60.6" y="398.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="77.4" y="398.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="43.7" y="415.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="60.6" y="415.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="77.4" y="415.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="26.9" y="432.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux de…</text>
+<text x="10.0" y="449.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────</text>
+<text x="10" y="484" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 6 columns: 18/18 frames show the chart</text>
+<rect x="10" y="492" width="50.6" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="525" width="54.6" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="52.1" y="504.8" fill="#949494" font-size="14.0" xml:space="preserve">d</text>
+<text x="52.1" y="521.8" fill="#949494" font-size="14.0" xml:space="preserve">)</text>
+<text x="18.4" y="538.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="35.3" y="538.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="18.4" y="555.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="35.3" y="555.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="26.9" y="572.8" fill="#949494" font-size="14.0" xml:space="preserve">t…</text>
+<text x="10.0" y="589.8" fill="#808080" font-size="14.0" xml:space="preserve">──────</text>
+<text x="10" y="624" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 3 columns: 7/17 frames show the chart</text>
+<rect x="10" y="632" width="25.3" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="665" width="29.3" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="644.8" fill="#4e4e4e" font-size="14.0" xml:space="preserve">❯ </text>
+<text x="26.9" y="644.8" fill="#ffffff" font-size="14.0" xml:space="preserve">R</text>
+<text x="10.0" y="678.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="10.0" y="695.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="10.0" y="729.8" fill="#808080" font-size="14.0" xml:space="preserve">───</text>
+<text x="10" y="764" fill="#cde" font-size="13" font-family="system-ui, sans-serif">pane 100 columns: 19/19 frames show the chart</text>
+<rect x="10" y="772" width="843.0" height="102" fill="#101010" stroke="#555"/>
+<rect x="8" y="805" width="847.0" height="36" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="18.4" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="35.3" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="52.1" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="69.0" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="85.9" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="102.7" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="119.6" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="136.4" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="153.3" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="170.2" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="187.0" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="203.9" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="220.8" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="271.3" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="288.2" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="305.1" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="321.9" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="338.8" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="355.6" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="372.5" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="406.2" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="423.1" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="456.8" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="490.5" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="507.4" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="524.2" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╿</text>
+<text x="541.1" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="557.9" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="574.8" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="591.7" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╻</text>
+<text x="608.5" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="659.1" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╷</text>
+<text x="676.0" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="692.8" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="709.7" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="726.5" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="743.4" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="760.3" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="777.1" y="818.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="827.7" y="818.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╷</text>
+<text x="18.4" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="35.3" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="52.1" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="69.0" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="85.9" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╹</text>
+<text x="102.7" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="153.3" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="187.0" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="203.9" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="220.8" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="237.6" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="254.5" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="271.3" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="321.9" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="372.5" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="389.3" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="406.2" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="423.1" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="439.9" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="456.8" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="473.6" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="490.5" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="541.1" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="608.5" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="625.4" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╻</text>
+<text x="642.2" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="659.1" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╿</text>
+<text x="676.0" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╹</text>
+<text x="709.7" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="743.4" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╵</text>
+<text x="760.3" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╵</text>
+<text x="777.1" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">┃</text>
+<text x="794.0" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">╽</text>
+<text x="810.9" y="835.8" fill="#ff5f87" font-size="14.0" xml:space="preserve">╽</text>
+<text x="827.7" y="835.8" fill="#5faf5f" font-size="14.0" xml:space="preserve">┃</text>
+<text x="26.9" y="852.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux focus-events off · add &#x27;set -g focus-events on&#x27; to ~/.tmux.conf and reattach for focus tra…</text>
+<text x="10.0" y="869.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+</svg>

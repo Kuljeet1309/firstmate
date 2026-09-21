@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1369" height="452" viewBox="0 0 1369 452" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace">
+<title>Live working row with config/calm=on and config/calm-scene=candles when the function-hooks flag is not exactly 1</title>
+<rect width="100%" height="100%" fill="#1b1b1b"/>
+<text x="10" y="20" fill="#9ab" font-size="13" font-family="system-ui, sans-serif">Live working row with config/calm=on and config/calm-scene=candles when the function-hooks flag is not exactly 1</text>
+<text x="10" y="48" fill="#cde" font-size="13" font-family="system-ui, sans-serif">CLAUDE_CODE_ENABLE_FUNCTION_HOOKS unset</text>
+<rect x="8" y="87" width="1353" height="19" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="100.8" fill="#d78787" font-size="14.0" xml:space="preserve">✻</text>
+<text x="26.9" y="100.8" fill="#d78787" font-size="14.0" xml:space="preserve">Booping… </text>
+<text x="102.7" y="100.8" fill="#949494" font-size="14.0" xml:space="preserve">(2s · thinking)</text>
+<text x="524.2" y="117.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux detected · scroll with PgUp/PgDn · or add &#x27;set -g mouse on&#x27; to ~/.tmux.conf for wheel scroll</text>
+<text x="10.0" y="134.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="10.0" y="151.8" fill="#949494" font-size="14.0" xml:space="preserve">❯ </text>
+<text x="1088.8" y="66" fill="#e5c07b" font-size="12" font-family="system-ui, sans-serif">working row drawn as: STOCK spinner</text>
+<text x="10" y="184" fill="#cde" font-size="13" font-family="system-ui, sans-serif">CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=true (engine loads the module; mod stays inert)</text>
+<rect x="8" y="223" width="1353" height="19" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="236.8" fill="#d78787" font-size="14.0" xml:space="preserve">✻</text>
+<text x="26.9" y="236.8" fill="#d78787" font-size="14.0" xml:space="preserve">Marinating… </text>
+<text x="128.0" y="236.8" fill="#949494" font-size="14.0" xml:space="preserve">(2s · thinking)</text>
+<text x="524.2" y="253.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux detected · scroll with PgUp/PgDn · or add &#x27;set -g mouse on&#x27; to ~/.tmux.conf for wheel scroll</text>
+<text x="10.0" y="270.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="10.0" y="287.8" fill="#949494" font-size="14.0" xml:space="preserve">❯ </text>
+<text x="1088.8" y="202" fill="#e5c07b" font-size="12" font-family="system-ui, sans-serif">working row drawn as: STOCK spinner</text>
+<text x="10" y="320" fill="#cde" font-size="13" font-family="system-ui, sans-serif">CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=0</text>
+<rect x="8" y="359" width="1353" height="19" fill="none" stroke="#e5c07b" stroke-dasharray="4 3"/>
+<text x="10.0" y="372.8" fill="#d78787" font-size="14.0" xml:space="preserve">✻</text>
+<text x="26.9" y="372.8" fill="#d78787" font-size="14.0" xml:space="preserve">Propagating… </text>
+<text x="136.4" y="372.8" fill="#949494" font-size="14.0" xml:space="preserve">(4s · ↓</text>
+<text x="203.9" y="372.8" fill="#949494" font-size="14.0" xml:space="preserve">136 tokens)</text>
+<text x="524.2" y="389.8" fill="#949494" font-size="14.0" xml:space="preserve">tmux detected · scroll with PgUp/PgDn · or add &#x27;set -g mouse on&#x27; to ~/.tmux.conf for wheel scroll</text>
+<text x="10.0" y="406.8" fill="#808080" font-size="14.0" xml:space="preserve">────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="10.0" y="423.8" fill="#949494" font-size="14.0" xml:space="preserve">❯ </text>
+<text x="1088.8" y="338" fill="#e5c07b" font-size="12" font-family="system-ui, sans-serif">working row drawn as: STOCK spinner</text>
+</svg>

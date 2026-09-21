@@ -1,0 +1,2 @@
+config/calm-scene bytes: 0000000 c a n d l e s \n \n 0000015 
+settled: answer shown, no working row, no candles, no boat

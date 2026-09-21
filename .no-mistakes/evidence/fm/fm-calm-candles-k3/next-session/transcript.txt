@@ -1,0 +1,10 @@
+session A starts with NO config/calm-scene
+A turn 1: candle-frames=0 boat-frames=41
+wrote config/calm-scene=candles mid-session
+A turn 2 (same session): candle-frames=0 boat-frames=40
+/clear sent
+A turn 3 (after /clear): candle-frames=0 boat-frames=38
+session B: fresh claude launch with config/calm-scene=candles
+B turn 1: candle-frames=37 boat-frames=0
+removed config/calm-scene mid-session
+B turn 2 (same session): candle-frames=38 boat-frames=0

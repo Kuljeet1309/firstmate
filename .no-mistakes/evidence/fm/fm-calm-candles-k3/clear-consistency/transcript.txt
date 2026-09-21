@@ -1,0 +1,8 @@
+session starts: config/calm=on, no config/calm-scene
+turn 1: candle-frames=0 boat-frames=32 stock-row-frames=0
+wrote config/calm=off and config/calm-scene=candles mid-session
+/clear sent
+turn 2 (after /clear): candle-frames=0 boat-frames=36 stock-row-frames=0
+debug-log session.start mentions: 9
+      1 [DEBUG] hooks module firstmate-calm@skills-dir loaded (worker, environment 1, tier user); events: session.start,command.run,config.set,turn.step,ui.render
+      1 [DEBUG] hooks module firstmate-calm@skills-dir session.start settled in 467.1ms (worker hop, next() included)

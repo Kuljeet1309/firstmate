@@ -1,0 +1,44 @@
+           /
+           p
+           r
+           o
+           j
+           e
+           c
+           t
+
+▎ Debug mode
+▎ enabled ·
+▎ logging
+▎ to /tmp/fm
+▎ -calm-cand
+▎ les-lab/de
+▎ bug.log
+
+❯ Run this
+  exact
+  bash
+  command
+  with the
+  Bash tool
+  in the
+  foregroun
+  d: sleep
+  12; cat
+  notes.txt
+    Then
+  reply
+  with one
+  short
+  sentence
+  naming
+  the three
+  words.
+ ╿ ┃ ╻ ╷ ╷
+   ╵ ╵ ╿ ╿
+  tmux de…
+────────────
+❯ 
+────────────
+  Haiku 4…
+  ⏵⏵

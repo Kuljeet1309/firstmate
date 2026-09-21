@@ -1,0 +1,7 @@
+flag 1, config/calm=off, config/calm-scene=candles
+turn 1 settled
+calm off: chart frames=0, hull frames=0, stock-row frames=42
+calm off: tool row visible after settle: 1
+after /calm: config/calm=on, notice shown: 1
+turn 2 settled
+calm on: {'chart_frames': 52, 'frames_with_one_candle_one_gap': 52, 'colors_seen': ['5;204', '5;71'], 'transitions': {'left1': 5}}, hull frames=0

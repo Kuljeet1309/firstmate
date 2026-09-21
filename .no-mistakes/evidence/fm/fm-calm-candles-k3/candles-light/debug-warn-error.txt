@@ -1,0 +1,1 @@
+2026-09-21T11:51:55.127Z [WARN] plugin firstmate-calm: options requested but its manifest declares no userConfig; every option reads as absent

@@ -1,0 +1,3 @@
+# Base commit 43bf6d3 mod, flag on, config/calm ABSENT, no config/calm-scene (copied verbatim from the debug log before it was deleted for privacy)
+2026-09-21T11:44:08.844Z [WARN] plugin firstmate-calm: options requested but its manifest declares no userConfig; every option reads as absent
+2026-09-21T11:44:10.070Z [ERROR] $.fs.read (firstmate-calm): /tmp/fm-calm-candles-lab/fmhome/config/calm failed: ENOENT: no such file or directory, open '/tmp/fm-calm-candles-lab/fmhome/config/calm'

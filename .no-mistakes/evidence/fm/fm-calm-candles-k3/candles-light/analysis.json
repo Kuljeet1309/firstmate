@@ -1,0 +1,34 @@
+{
+ "frames": 42,
+ "chart_frames": 42,
+ "problems": [],
+ "glyph_column_span": [
+  0,
+  157
+ ],
+ "frames_with_one_candle_one_gap": 42,
+ "frames_with_only_theme_green_red": 42,
+ "glyph_columns_per_frame": [
+  79,
+  79
+ ],
+ "colors_seen": [
+  "5;125",
+  "5;29"
+ ],
+ "candles_single_colored": true,
+ "distinct_charts": 5,
+ "transitions": {
+  "left1": 4
+ },
+ "interval_ms": {
+  "median": 953,
+  "min": 918,
+  "max": 1011,
+  "n": 3
+ },
+ "sample_chart": [
+  "┃ ╿ ╿ ┃ ╻ ╷ ╷ ╷ ╽ ╷ ╻ ╿ ┃ ┃ ╿ ╻ ╽ ╻     ╷ ╽ ╹ ┃ ╻ ╿ ┃   ╷ ╷   ╷   ╽ ╽ ╿ ╽ ╽ ╹ ╻ ╷     ╷ ┃ ┃ ╽ ┃ ┃ ╽ ╽     ╷   ┃ ┃ ╻ ┃ ┃       ╷     ╽ ╽ ╽ ╹ ╽ ╽ ╷ ╷ ╷ ╽ ╽ ╻ ╽",
+  "╿     ╵ ╵ ╿ ╿ ╹ ╵ ╹ ╹     ╵   ╵ ╵ ┃ ┃ ┃ ┃     ╵     ╵ ╿ ╹ ┃ ┃ ┃ ┃ ╵     ╵       ┃ ╻ ╹ ╿ ╹   ╵   ╵ ╵ ┃ ╽ ╽ ┃ ╿ ╹   ╵ ╵ ╿ ╹ ╹ ╽ ┃ ┃ ╽ ╿       ╵ ╵ ╹ ╿ ╹ ╵ ╵ ╵"
+ ]
+}

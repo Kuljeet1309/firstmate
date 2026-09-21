@@ -1,0 +1,44 @@
+
+ ▐▛███▛█   Claude Code v2.1.278
+▝▜██████▀  Haiku 4.5 · Claude Max
+  ▝▝ ▝▝    /…/project
+
+▎ Debug mode enabled · logging to
+▎ /tmp/fm-calm-candles-lab/debug.log
+
+❯ Run this exact bash command with the
+  Bash tool in the foreground: sleep
+  12; cat notes.txt   Then reply with
+  one short sentence naming the three
+  words.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ╿ ╿ ┃ ╻ ╷ ╷ ╷ ╽ ╷ ╻ ╿ ┃ ┃ ╿ ╻ ╽ ╻
+     ╵ ╵ ╿ ╿ ╹ ╵ ╹ ╹     ╵   ╵ ╵ ┃ ┃ ┃
+  tmux detected · scroll with PgUp/Pg…
+────────────────────────────────────────
+❯ 
+────────────────────────────────────────
+  Haiku 4.5 | project | ctx:[██░░░░░░…
+  ⏵⏵ bypass permissions on (shift+tab

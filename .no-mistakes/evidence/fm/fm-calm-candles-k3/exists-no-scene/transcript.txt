@@ -1,0 +1,7 @@
+mod: 47da882 + uncommitted exists-first read; config dir: calm 
+working row: Calm boat hull drawn
+settled: answer shown, working row gone
+hooks module line: hooks module firstmate-calm@skills-dir loaded
+ENOENT lines naming the Calm config files of the home: 0
+firstmate-calm WARN/ERROR lines:
+2026-09-21T12:18:33.641Z [WARN] plugin firstmate-calm: options requested but its manifest declares no userConfig; every option reads as absent
