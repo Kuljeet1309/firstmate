@@ -1,0 +1,28 @@
+# commit: 43cd4c1
+# sandbox FM_HOME=/tmp/fmpromote-live.B1bK/home; private tmux (TMUX_TMPDIR); fm-send run with FM_GATE_REFUSE_BYPASS=1 (sandbox-fleet test hatch)
+# tasks: claude-x.meta fm-claude-u2063-strip-k3.meta fm-claude-x.meta 
+
+$ bin/fm-promote.sh fm-claude-u2063-strip-k3 --mode no-mistakes --yolo off
+rc=0
+next: FM_HOME=/tmp/fmpromote-live.B1bK/home bin/fm-send.sh fm-claude-u2063-strip-k3 "$(cat /tmp/fmpromote-live.B1bK/home/data/fm-claude-u2063-strip-k3/ship-instructions.md)"
+--- running the printed next: command with the REAL bin/fm-send.sh
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+rc=0
+
+$ bin/fm-promote.sh claude-x --mode no-mistakes --yolo off
+rc=0
+next: FM_HOME=/tmp/fmpromote-live.B1bK/home bin/fm-send.sh claude-x "$(cat /tmp/fmpromote-live.B1bK/home/data/claude-x/ship-instructions.md)"
+--- running the printed next: command with the REAL bin/fm-send.sh
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+rc=0
+
+=== inbox state after delivery:
+fm-claude-u2063-strip-k3.inbox: 1 file(s); 1 containing ship instructions
+claude-x.inbox: 1 file(s); 1 containing ship instructions
+fm-claude-x.inbox: absent
+fm-fm-claude-u2063-strip-k3.inbox: absent
+fm-fm-claude-x.inbox: absent
+=== doorbell seen in each tmux pane:
+fm-fm-claude-u2063-strip-k3: strip-k3.inbox'/handled/.
+fm-claude-x: ed file to '/tmp/fmpromote-live.B1bK/home/state/claude-x.inbox'/handled/.
+fm-fm-claude-x: 

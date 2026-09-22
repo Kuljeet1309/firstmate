@@ -1,0 +1,18 @@
+# commit: 43cd4c1; tasks: steer-me, fm-steer-me
+$ bin/fm-fleet-snapshot.sh --json | jq '.tasks[] | {id, actions}'
+{"id":"fm-steer-me","watch":"bin/fm-peek.sh fm-steer-me","steer":"bin/fm-send.sh fm-steer-me '<instruction>'"}
+{"id":"steer-me","watch":"bin/fm-peek.sh steer-me","steer":"bin/fm-send.sh steer-me '<instruction>'"}
+
+$ bin/fm-send.sh fm-steer-me 'steer for fm-steer-me'
+rc=0
+$ bin/fm-send.sh steer-me 'steer for steer-me'
+rc=0
+=== which inbox got which steer:
+steer-me.inbox: steer for steer-me 
+fm-steer-me.inbox: steer for fm-steer-me 
+fm-fm-steer-me.inbox: absent
+=== watch hint for steer-me via real fm-peek.sh:
+$ bin/fm-peek.sh steer-me
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+: Firstmate instruction waiting: list '/tmp/fmsnap-live.EFNT/home/state/steer-me
+.inbox'/*.msg and, in numeric order, read and act on each, then mv each handled
