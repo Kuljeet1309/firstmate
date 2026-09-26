@@ -1,0 +1,25 @@
+backlog before spawn:
+5:- [ ] abortlive2047737 - hung agent check (kind: ship) (since 2026-09-26)
+### spawn whose post-launch backlog commit fails while its agent runs
+fm-spawn exit=1 after 8s
+Run "treehouse update" to update
+
+🌳 Setting up worktree...
+🌳 Leased worktree at /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj. Run 'treehouse return /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj' to release it.
+warning: herdr presentation parent is absent or ambiguous; using the ordinary flat layout without projection
+error: task abortlive2047737's backlog item could not be moved to In flight (injected start failure); its record was removed so no worker is left that the backlog does not own - close out endpoint fm-lab-abortlive-2047740-32028:w1:p2 and local copy /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj by hand, then re-run the spawn
+warning: leaving task abortlive2047737's slot claim on /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj in place; the Treehouse project lock is no longer held, so the next spawn's claim replaces it
+warning: task abortlive2047737's aborted spawn left Treehouse slot /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj leased with no task record to return it, because its pane fm-lab-abortlive-2047740-32028:w1:p2 is not confirmed gone or the Treehouse project lock is busy; once no agent runs there, release it with: treehouse return --if-lease-holder abortlive2047737 /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj
+pane process:
+{"pane":"w1:p2","fg":["sleep"]}
+pool:
+1     leased       /tmp/fm-live-abort.mAj3om/pool/.treehouse/proj-3fc78c/1/proj  (held by abortlive2047737)
+                   bash (2049298), sleep (2051024)
+lab tabs:
+{"label":"fm-abortlive2047737","tab_id":"w1:t2"}
+PASS: spawn failed
+PASS: task record rolled back
+PASS: slot stays leased to the task while its agent may still run
+PASS: warning names the kept lease and how to release it
+RESULT rc=0
+### cleanup

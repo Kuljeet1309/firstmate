@@ -1,0 +1,2 @@
+not ok - the flat spawn's worktree is not leased to its task: 1     in-use       /tmp/fm-herdr-pane-wt.v4Ee3a/pool/.treehouse/proj-2d7f85/1/proj
+                   bash (1314777), sleep (1317494)

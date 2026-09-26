@@ -1,0 +1,7 @@
+ok - real herdr: fresh flat and projected spawns create their pane in the task's leased worktree
+ok - real herdr: Herdr saves each fresh worker's pane in its worktree
+ok - real herdr: a server restart restores and resumes every worker in its worktree
+ok - real herdr: a relaunch replaces the pane in the same workspace, created in the worktree
+ok - real herdr: after a relaunch a restart resumes the replacement's conversation in the worktree
+ok - real herdr: a spawn that aborts after taking its lease and pane returns the lease and closes the pane
+ok - real herdr: a spawn rolled back after publication, before launch, returns the lease and closes the pane
