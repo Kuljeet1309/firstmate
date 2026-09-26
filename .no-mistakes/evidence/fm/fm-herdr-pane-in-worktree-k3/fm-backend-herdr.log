@@ -11,6 +11,8 @@ ok - herdr client selection: a live pane behind a stale shadowing client reads a
 ok - herdr recovery-grade read: a stopped server means missing there, and nowhere else
 ok - herdr stale registration: a shell-only pane with a lingering Pi record is agent-free with an explicit reason
 ok - herdr stale registration: no registered status can outrank a shell-only process view
+ok - herdr pane agent session: a resumable reference is reported with the agent label that reported it
+ok - herdr pane agent session: anything unresumable degrades to a nonzero read with no output
 ok - herdr stale registration: a registered agent with a live Pi foreground process still reads alive
 ok - herdr stale registration: only a shell-only pane demotes a registration
 ok - herdr stale registration: a transient prompt helper settles into stale-agent instead of reading live
@@ -96,9 +98,9 @@ ok - herdr presentation cleanup: an ambiguous workspace layout falls back to the
 ok - herdr presentation cleanup: a failed repositioning move falls back to the plain close with a warning
 ok - herdr presentation cleanup: a pane with a live foreground process falls back to the plain close
 ok - herdr presentation cleanup: a transient prompt helper settles into the pane-death path instead of the plain close
-tests/fm-backend-herdr.test.sh: line 2672: 1785872 Killed                     bash -c 'trap "" HUP; sleep 300'
+tests/fm-backend-herdr.test.sh: line 2730: 1578256 Killed                     bash -c 'trap "" HUP; sleep 300'
 ok - herdr presentation cleanup: a SIGHUP-surviving shell is escalated to SIGKILL before giving up
-tests/fm-backend-herdr.test.sh: line 2710: 1787011 Killed                     bash -c 'trap "" HUP; sleep 300'
+tests/fm-backend-herdr.test.sh: line 2768: 1578959 Killed                     bash -c 'trap "" HUP; sleep 300'
 ok - herdr presentation cleanup: a failed pane-death close falls back to the plain close
 ok - herdr presentation cleanup: the exact-tab restore remains the backstop behind the pane-death close
 ok - herdr presentation cleanup: SIGKILL never reaches a pid the exact pane no longer owns
@@ -226,3 +228,7 @@ ok - fm_backend_herdr_wait_transition: streamed working clears the marker, idle/
 ok - fm_backend_herdr_wait_transition: a reader/subscribe failure falls back to polling (rc 2)
 ok - fm_backend_herdr_wait_transition: Bash 3.2-safe bad-ack path closes fd 9 and removes its FIFO
 ok - fm_backend_herdr_wait_transition: stock macOS Bash clean timeout closes fd 9 and returns 1
+
+real	1m39.593s
+user	0m31.091s
+sys	0m55.331s

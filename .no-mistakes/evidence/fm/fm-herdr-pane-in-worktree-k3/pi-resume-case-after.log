@@ -1,0 +1,4 @@
+## host: pi on PATH = absent
+## AFTER (uncommitted change: inert pi stub)
+ok - fm-spawn --relaunch: resumes the bound Pi session only for a Pi registration
+exit=0

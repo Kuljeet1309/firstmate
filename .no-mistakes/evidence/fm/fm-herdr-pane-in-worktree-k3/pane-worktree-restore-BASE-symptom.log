@@ -1,0 +1,10 @@
+BASE: flat pane cwd=$TMPDIR/fm-herdr-pane-wt.1O493W/proj worktree=$TMPDIR/fm-herdr-pane-wt.1O493W/pool/.treehouse/proj-aa0456/1/proj
+BASE: projected pane cwd=$TMPDIR/fm-herdr-pane-wt.1O493W/proj worktree=$TMPDIR/fm-herdr-pane-wt.1O493W/pool/.treehouse/proj-aa0456/2/proj
+ok - real herdr: fresh flat and projected spawns create their pane in the task's leased worktree
+BASE: saved panes for pwflat2912242: $TMPDIR/fm-herdr-pane-wt.1O493W/proj	sess-pwflat2912242-1
+BASE: saved panes for pwpres2912242: $TMPDIR/fm-herdr-pane-wt.1O493W/proj	sess-pwpres2912242-1
+ok - real herdr: Herdr saves each fresh worker's pane in its worktree
+not ok - after a restart Herdr did not resume pwflat2912242 in its worktree: $TMPDIR/fm-herdr-pane-wt.1O493W/pool/.treehouse/proj-aa0456/1/proj	first
+$TMPDIR/fm-herdr-pane-wt.1O493W/pool/.treehouse/proj-aa0456/2/proj	first
+$TMPDIR/fm-herdr-pane-wt.1O493W/proj	--resume sess-pwflat2912242-1
+$TMPDIR/fm-herdr-pane-wt.1O493W/proj	--resume sess-pwpres2912242-1

@@ -1,0 +1,9 @@
+## host: pi on PATH = absent
+## BEFORE (HEAD test, no inert pi stub)
+ok - fm-control relaunch: a same-harness relaunch replaces the agent in the same endpoint and worktree
+ok - fm-control relaunch: pending composer text refuses before the exit command is typed
+ok - fm-control relaunch: an unreadable composer fails safe before the exit command is typed
+ok - fm-control relaunch: a linked spawning home preserves committed and unfinished work in the recorded copy
+not ok - Herdr Pi relaunch should complete (pi registration)
+error: pi executable not found on PATH; install it or select a different verified harness: expected exit 0, got 1
+exit=1

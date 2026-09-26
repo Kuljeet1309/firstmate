@@ -61,6 +61,7 @@ ok - tmux: a window absent from its session refuses both verbs rather than being
 ok - tmux: an unfindable session refuses both verbs, so a live agent is never duplicated
 ok - tmux: a dead server on this socket refuses both verbs rather than proving absence
 ok - reclaim: an unclassifiable endpoint is still refused, so two agents cannot share one
+ok - fm-spawn --relaunch: resumes the bound Pi session only for a Pi registration
 ok - reclaim: a herdr pane that outlived its stopped server is replaced in its workspace and worktree, never orphaned beside a new tab
 ok - fm-control exit: a herdr pane that outlived its stopped server is already-stopped, not gone
 ok - reclaim: a herdr rebind is created in the session the record names, never the ambient one
@@ -70,3 +71,7 @@ ok - reclaim: a herdr secondmate whose endpoint is gone is sent to its own respa
 ok - reclaim: a rebind refused from a plain shell reports the real cause, not a fabricated session mismatch
 ok - relaunch re-reads the backlog item instead of blindly re-running the transition
 ok - relaunch heals an item that drifted out of In flight while the task stayed live
+
+real	4m51.549s
+user	1m32.583s
+sys	2m40.460s

@@ -7,6 +7,6 @@ ok - real herdr: a spawn that aborts after taking its lease and pane returns the
 ok - real herdr: an aborted spawn whose slot holds uncommitted work keeps it leased and names the manual release
 ok - real herdr: a spawn rolled back after publication, before launch, returns the lease and closes the pane
 
-real	0m43.853s
-user	0m7.734s
-sys	0m14.531s
+real	0m44.982s
+user	0m7.445s
+sys	0m15.025s
