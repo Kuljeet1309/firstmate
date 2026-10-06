@@ -1,0 +1,31 @@
+=== attended: host exit code: 0
+=== attended: host stdout (what main receives):
+watcher: started pid=512863 (beacon fresh)
+signal: /tmp/fm-supervision-host.JXYIk6/live-attended/state/demo.status
+=== attended: state/.supervision-host.log:
+1791271027	start	gen=host-512637-1791271027	primary=claude
+1791271034	pass-through	attended	branch eligibility could not be computed: TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /home/user1kuljeet/.no-mistakes/worktrees/36a3c18ea163/01M48125XS99GP3VSFNJ8N19ZS/.pi/extensions/lib/fm-branch-dispatch.ts	signal: /tmp/fm-supervision-host.JXYIk6/live-attended/state/demo.status
+=== attended: engine calls: 0
+=== attended: leftover error captures: 0
+=== attended: wake-queue:
+1791271031	1	signal	demo.status	signal: /tmp/fm-supervision-host.JXYIk6/live-attended/state/demo.status
+1791271031	2	signal	demo.status	signal: /tmp/fm-supervision-host.JXYIk6/live-attended/state/demo.status
+
+=== away: host exit code: 0
+=== away: host stdout (what main receives):
+watcher: started pid=521585 (beacon fresh)
+signal: /tmp/fm-supervision-host.JXYIk6/live-away/state/demo.status
+supervision-host: the away session could not take this wake: branch eligibility could not be computed: TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /home/user1kuljeet/.no-mistakes/worktrees/36a3c18ea163/01M48125XS99GP3VSFNJ8N19ZS/.pi/extensions/lib/fm-branch-dispatch.ts; this wake is yours
+=== away: state/.supervision-host.log:
+1791271036	start	gen=host-521040-1791271035	primary=claude
+1791271044	to-main	the away session could not take this wake: branch eligibility could not be computed: TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /home/user1kuljeet/.no-mistakes/worktrees/36a3c18ea163/01M48125XS99GP3VSFNJ8N19ZS/.pi/extensions/lib/fm-branch-dispatch.ts; this wake is yours
+=== away: engine calls: 0
+=== away: leftover error captures: 0
+=== away: wake-queue:
+1791271039	1	signal	demo.status	signal: /tmp/fm-supervision-host.JXYIk6/live-away/state/demo.status
+1791271039	2	signal	demo.status	signal: /tmp/fm-supervision-host.JXYIk6/live-away/state/demo.status
+
+ok - host: an attended close whose eligibility Node cannot compute logs Node's error and reaches main unchanged
+ok - host: an away wake whose scope Node cannot compute hands back naming Node's error
+ok - host: an attended close whose task turns main-only before its turn still reaches main unchanged
+ok - host: an away wake is handled on the engine through the branch contract and never reaches main

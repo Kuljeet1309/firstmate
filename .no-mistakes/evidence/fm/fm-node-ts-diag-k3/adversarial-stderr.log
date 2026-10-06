@@ -1,0 +1,46 @@
+=== attended/hostile rc=0
+--- stdout:
+watcher: started pid=594579 (beacon fresh)$
+signal: /tmp/fm-supervision-host.sHFG9w/adv-attended-hostile/state/demo.status$
+--- log (cat -A):
+1791271145^Istart^Igen=host-594188-1791271145^Iprimary=claude$
+1791271151^Ipass-through^Iattended^Ibranch eligibility could not be computed:  boom here [31mred[0m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx^Isignal: /tmp/fm-supervision-host.sHFG9w/adv-attended-hostile/state/demo.status$
+--- log fields per line: 4 5 
+--- longest log line chars: 394
+--- leftover captures: 0
+
+=== away/hostile rc=0
+--- stdout:
+watcher: started pid=600046 (beacon fresh)$
+signal: /tmp/fm-supervision-host.sHFG9w/adv-away-hostile/state/demo.status$
+supervision-host: the away session could not take this wake: branch eligibility could not be computed:  boom here [31mred[0m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; this wake is yours$
+--- log (cat -A):
+1791271152^Istart^Igen=host-599774-1791271152^Iprimary=claude$
+1791271158^Ito-main^Ithe away session could not take this wake: branch eligibility could not be computed:  boom here [31mred[0m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; this wake is yours$
+--- log fields per line: 4 3 
+--- longest log line chars: 364
+--- leftover captures: 0
+
+=== attended/empty rc=0
+--- stdout:
+watcher: started pid=604477 (beacon fresh)$
+signal: /tmp/fm-supervision-host.sHFG9w/adv-attended-empty/state/demo.status$
+--- log (cat -A):
+1791271159^Istart^Igen=host-604110-1791271159^Iprimary=claude$
+1791271164^Ipass-through^Iattended^Ibranch eligibility could not be computed^Isignal: /tmp/fm-supervision-host.sHFG9w/adv-attended-empty/state/demo.status$
+--- log fields per line: 4 5 
+--- longest log line chars: 150
+--- leftover captures: 0
+
+=== away/empty rc=0
+--- stdout:
+watcher: started pid=607190 (beacon fresh)$
+signal: /tmp/fm-supervision-host.sHFG9w/adv-away-empty/state/demo.status$
+supervision-host: the away session could not take this wake: branch eligibility could not be computed; this wake is yours$
+--- log (cat -A):
+1791271165^Istart^Igen=host-606875-1791271165^Iprimary=claude$
+1791271173^Ito-main^Ithe away session could not take this wake: branch eligibility could not be computed; this wake is yours$
+--- log fields per line: 4 3 
+--- longest log line chars: 122
+--- leftover captures: 0
+

@@ -1,0 +1,27 @@
+=== attended: host exit code: 0
+=== attended: host stdout (what main receives):
+watcher: started pid=576794 (beacon fresh)
+signal: /tmp/fm-supervision-host.nVthq4/live-attended/state/demo.status
+=== attended: state/.supervision-host.log:
+1791271118	start	gen=host-576378-1791271117	primary=claude
+1791271123	pass-through	attended	branch eligibility could not be computed	signal: /tmp/fm-supervision-host.nVthq4/live-attended/state/demo.status
+=== attended: engine calls: 0
+=== attended: leftover error captures: 0
+=== attended: wake-queue:
+1791271121	1	signal	demo.status	signal: /tmp/fm-supervision-host.nVthq4/live-attended/state/demo.status
+1791271121	2	signal	demo.status	signal: /tmp/fm-supervision-host.nVthq4/live-attended/state/demo.status
+
+=== away: host exit code: 0
+=== away: host stdout (what main receives):
+watcher: started pid=582204 (beacon fresh)
+signal: /tmp/fm-supervision-host.nVthq4/live-away/state/demo.status
+supervision-host: the away session could not take this wake: branch eligibility could not be computed; this wake is yours
+=== away: state/.supervision-host.log:
+1791271124	start	gen=host-581741-1791271124	primary=claude
+1791271131	to-main	the away session could not take this wake: branch eligibility could not be computed; this wake is yours
+=== away: engine calls: 0
+=== away: leftover error captures: 0
+=== away: wake-queue:
+1791271127	1	signal	demo.status	signal: /tmp/fm-supervision-host.nVthq4/live-away/state/demo.status
+1791271127	2	signal	demo.status	signal: /tmp/fm-supervision-host.nVthq4/live-away/state/demo.status
+
