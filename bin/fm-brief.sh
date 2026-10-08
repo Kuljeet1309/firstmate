@@ -570,7 +570,9 @@ IFS= read -r -d '' SHARED_INFRA_RULE <<'EOF' || true
      fixing, because that record can be stale after the daemon exits. A run record failed with
      `daemon shutting down`, `daemon crashed during execution`, or `interrupted by daemon restart`
      was cut by the daemon, not by your change: once `no-mistakes daemon status` answers, start one
-     fresh run for the same HEAD unless firstmate told you to stop that run. First run
+     fresh run for the same HEAD unless firstmate told you to stop that run, or unless the cut run
+     had already reported all CI checks passed; then the PR is ready: append the done line with its
+     URL and stop. First run
      `no-mistakes axi sync --recover` if `no-mistakes axi status` shows `branch_sync.next_action`
      `recover_custody`, then confirm `axi status` shows no active run on the branch (reattach
      instead if a crash restart resumed one), then start `no-mistakes axi run` the way the cut run
