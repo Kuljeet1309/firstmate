@@ -575,7 +575,7 @@ IFS= read -r -d '' SHARED_INFRA_RULE <<'EOF' || true
      `recover_custody`, then confirm `axi status` shows no active run on the branch (reattach
      instead if a crash restart resumed one), then start `no-mistakes axi run` the way the cut run
      was started and drive it as usual. If that fresh run is refused or also ends with a daemon
-     error, append `blocked [at=<epoch>]: {the error}` and stop.
+     error, append `blocked [at=<epoch>]: fresh run after daemon cut: {the error}` and stop.
      Only after ruling out socket refusal, if the run is still running or fixing, reattach and keep
      going. A drive-call error, timeout, slow read, or generic unreachability is NOT a daemon error:
      the daemon accepts `respond` immediately and runs the round in the background, so a killed or
