@@ -1,0 +1,25 @@
+### scenario green - fake daemon calls
+1791482049 gh-axi 
+1791482060 no-mistakes daemon status
+1791482061 no-mistakes axi status
+1791482071 gh-axi pr view 42
+### status file
+done [at=1791482078]: PR https://github.com/acme/demo/pull/42 checks green
+### worker final message
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Task complete. The PR is green and I have reported done.
+
+**What happened:** the backgrounded drive call failed with "lost connection to daemon (EOF)". Following rule 7, I checked the daemon before treating that as a block. The daemon is running again, restarted about half a minute ago. The run record shows the ci step failed with "daemon shutting down", which means the daemon cut it, not my change.
+
+**Why no fresh run was needed:** the cut run's CI log tail already said all CI checks passed and it was only monitoring until merge. The brief says that in this case the PR is ready and the done line goes out without starting another run. Branch sync is in sync with no recovery action, and the worktree is clean.
+
+**PR verification:** I read the PR back from the forge. It is open and not a draft, so no ready-marking was required. My HEAD is the same commit the run pushed, so nothing was committed after the run.
+
+**Status appended:**
+
+```
+done [at=1791482078]: PR https://github.com/acme/demo/pull/42 checks green
+```
+
+The inbox is empty. Stopping here per the brief.
+exit=0

@@ -1,0 +1,16 @@
+=== firstmate case: first-cut
+Daemon answered as running, and the failed record's error is `daemon shutting down`, which the skill names as routine. The blocked line does not say `fresh run after daemon cut`, so this is a steer, not an escalation.
+
+STEER: Daemon is up (pid 41231, up 24s); 'daemon shutting down' was a routine daemon restart, not a pipeline failure - start your one fresh run under brief rule 7 with `no-mistakes axi run` from your worktree.
+
+=== firstmate case: second-cut
+CAPTAIN: lever-a-probe's no-mistakes run on fm/lever-a-probe failed twice with 'daemon crashed during execution', the second time on its one permitted fresh run after the first cut, and the shared daemon has restarted again just now (up 24s), so the lane's work is intact but blocked and the PR cannot open until the daemon crash is diagnosed.
+
+=== firstmate case: still-down
+The skill is clear on this case. The daemon status check returned a refused connection, which the skill calls positive daemon-down evidence that must be escalated, regardless of what the run record says. The "interrupted by daemon restart" error would only be routine once the daemon answers, and here it still refuses.
+
+CAPTAIN: no-mistakes daemon is down (daemon status: dial unix daemon.sock connection refused); lever-a-probe's run on fm/lever-a-probe failed 'interrupted by daemon restart' and the crewmate is blocked on it, no restart issued per shared-daemon rule, please restore the daemon so the lane can start its fresh run.
+
+=== firstmate case: other-error
+CAPTAIN: lever-a-probe's no-mistakes run on fm/lever-a-probe failed with "daemon out of disk space writing run log"; the daemon answers (restarted 24s ago) but a full disk is shared-host exhaustion that a fresh run cannot fix and I will not touch the shared daemon - please free disk on the daemon host, then I will steer the crewmate to its one fresh run.
+

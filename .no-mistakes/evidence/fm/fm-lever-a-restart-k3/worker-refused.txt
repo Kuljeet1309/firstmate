@@ -1,0 +1,16 @@
+### scenario refused - fake daemon calls
+1791482049 gh-axi 
+1791482063 no-mistakes daemon status
+1791482063 no-mistakes axi status
+### status file
+blocked [at=1791482071]: no-mistakes daemon unreachable: dial unix /home/u/.no-mistakes/daemon.sock: connect: connection refused (drive call returned lost connection to daemon EOF; daemon status and axi status both refuse)
+### worker final message
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+The pipeline is blocked on the shared no-mistakes daemon, and I have reported that and stopped.
+
+**What happened.** The backgrounded drive call returned a lost connection to the daemon. I checked the daemon and axi status as rule 7 requires. Both refuse to connect on the daemon socket at `/home/u/.no-mistakes/daemon.sock`. That is a real daemon outage, not a slow or killed drive call.
+
+**What I did.** I appended a blocked line to the status file naming the socket refusal error. I did not restart, stop, or otherwise touch the daemon, since only firstmate manages it. The inbox is empty, and the worktree is clean with the greeting commit still at HEAD.
+
+**What's next.** Firstmate needs to bring the daemon back. Once it answers, the next step per rule 7 is to run the sync recovery if axi status asks for it, confirm no active run remains on the branch, and start one fresh run with the same intent.
+exit=0

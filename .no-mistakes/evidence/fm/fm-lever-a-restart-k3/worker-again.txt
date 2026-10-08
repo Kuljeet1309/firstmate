@@ -1,0 +1,24 @@
+### scenario again - fake daemon calls
+1791482049 gh-axi 
+1791482061 no-mistakes daemon status
+1791482064 no-mistakes axi status
+1791482069 no-mistakes axi sync --recover
+1791482074 no-mistakes axi status
+1791482078 no-mistakes axi run --intent Add a one-line greeting to the README.
+1791482090 no-mistakes daemon status
+1791482090 no-mistakes axi status
+### status file
+blocked [at=1791482087]: fresh run after daemon cut: run 01FRESH failed: daemon crashed during execution
+### worker final message
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Blocked on the shared no-mistakes daemon. I appended the blocked line and stopped, as rule 7 requires.
+
+What happened after the backgrounded drive call returned with the lost-connection error:
+
+- **Daemon checks passed.** The daemon answered with a fresh process that had been up for only seconds. The old run record showed the review step failed with "interrupted by daemon restart", so the cut came from the daemon, not from the change.
+- **Custody recovered.** Branch sync reported diverged custody, so I ran the recover command. It restored custody at the greeting commit and status then showed in sync with no active run.
+- **Fresh run failed on the daemon again.** I started a new run with the same intent string. It was accepted as run 01FRESH and then ended with "daemon crashed during execution".
+- **Status reported.** The status file now ends with a blocked line naming that error. The inbox was empty and the worktree is clean at the greeting commit.
+
+The daemon has now cut two consecutive runs on this branch, which points at the daemon rather than the greeting change. Only firstmate manages the daemon, so the next step is theirs: restart or repair it, then tell me to start one more run for the same HEAD.
+exit=0

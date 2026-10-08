@@ -1,0 +1,33 @@
+### scenario cut - fake daemon calls
+1791482045 gh-axi 
+1791482056 no-mistakes daemon status
+1791482057 no-mistakes axi status
+1791482065 no-mistakes axi sync --recover
+1791482068 no-mistakes axi status
+1791482072 no-mistakes axi run --intent Add a one-line greeting to the README.
+1791482077 gh-axi pr view 43
+1791482079 no-mistakes axi status
+### status file
+done [at=1791482091]: PR https://github.com/acme/demo/pull/43 checks green
+### worker final message
+The task is finished and the done line is appended. The brief tells me to stop here.
+
+**Outcome:** The daemon cut the first run, a fresh run shipped the PR, and CI is green. PR: https://github.com/acme/demo/pull/43
+
+**What happened after the lost connection**
+
+- **Daemon was already back.** `no-mistakes daemon status` showed it running, and the run record failed with `daemon shutting down`. Rule 7 says that is a daemon cut, not a problem with the change, so no block was raised.
+- **Custody recovered.** Branch sync reported `recover_custody`, so I ran the recover command. It restored local custody of the branch at the same commit and sync went to `in_sync` with no active run.
+- **Fresh run started the same way.** I re-ran `no-mistakes axi run` with the same intent string. It returned `checks-passed` immediately with the PR URL.
+- **PR verified on the forge.** `gh-axi pr view 43` prints `draft: no`, so no ready-up was needed.
+- **HEAD unchanged.** The commit is still the greeting commit, the worktree is clean, and nothing was committed after the run.
+- **Inbox was empty** at both checkpoints.
+
+**One thing worth knowing:** `no-mistakes axi status` still displays the old cut run record rather than the fresh one. The brief says the drive call's return is the only authoritative green signal, and that return said `checks-passed`, so I treated the status display as stale rather than a problem.
+
+Status line written:
+
+```
+done [at=1791482091]: PR https://github.com/acme/demo/pull/43 checks green
+```
+exit=0
