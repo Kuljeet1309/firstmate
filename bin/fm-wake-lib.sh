@@ -1581,8 +1581,9 @@ fm_treehouse_pool_slot() {  # <project-dir> <worktree>
 # Treehouse can record ownership durably: `treehouse get --lease --lease-holder`
 # reserves a slot under a label until `treehouse return --if-lease-holder`
 # releases it, and Firstmate uses exactly that for secondmate homes
-# (bin/fm-home-seed.sh). Crewmate spawns do not take that path: they acquire
-# their slot through the interactive pane-driven `treehouse get`, whose state
+# (bin/fm-home-seed.sh). Crewmate spawns acquire their slot through the
+# interactive pane-driven `treehouse get` instead (a Herdr spawn then leases it
+# in place; see spawn_herdr_root_shell_into_slot in bin/fm-spawn.sh), whose state
 # entry is a live process lease (owner_pid plus owner_started_at, and `treehouse
 # status` reports in-use from the processes actually running under the path).
 # That answers "is anything running here", never "which task owns this", and it
@@ -1592,7 +1593,7 @@ fm_treehouse_pool_slot() {  # <project-dir> <worktree>
 # its own claim on top: one file naming the task that took the slot, written by
 # bin/fm-spawn.sh under the same project lock that allocates the slot and
 # released by bin/fm-teardown.sh when the slot goes back to the pool. Moving
-# crewmate spawns onto the durable lease is separate follow-up work.
+# every crewmate spawn onto the durable lease is separate follow-up work.
 #
 # The claim lives at <pool>/<slot>/.fm-slot-owner - a sibling of the repo
 # checkout rather than a file inside it - so claiming a slot can never dirty the
@@ -1604,8 +1605,15 @@ fm_treehouse_slot_owner_marker() {  # <worktree>
   printf '%s/.fm-slot-owner\n' "$(dirname "$slot")"
 }
 
-# Claim a pool slot for a task, replacing whatever the previous holder left.
-# The rename is atomic, so a reader either sees the old claim or the new one.
+# Claim a pool slot for a task, replacing whatever a finished previous holder
+# left. The rename is atomic, so a reader either sees the old claim or the new
+# one. A claim naming another task whose record still exists in its recorded
+# home is never replaced: Treehouse hands out a slot once its process lease
+# lapses (for example after a session restore restarts the worker outside the
+# slot), so a fresh acquisition is no proof the previous task is finished.
+# Returns 2 for that refusal, leaving FM_TREEHOUSE_SLOT_OWNER_ID and
+# FM_TREEHOUSE_SLOT_OWNER_HOME naming the live claimant, and 1 for any other
+# failure.
 fm_treehouse_slot_owner_claim() {  # <worktree> <task-id> <home>
   local worktree=$1 id=$2 home=$3 marker tmp
   [ -n "$id" ] || return 1
@@ -1615,6 +1623,12 @@ fm_treehouse_slot_owner_claim() {  # <worktree> <task-id> <home>
   if { [ -e "$marker" ] || [ -L "$marker" ]; } \
      && { [ ! -f "$marker" ] || [ -L "$marker" ]; }; then
     return 1
+  fi
+  fm_treehouse_slot_owner_state "$worktree" "$id"
+  if [ "$FM_TREEHOUSE_SLOT_OWNER" = other ] && [ -n "$FM_TREEHOUSE_SLOT_OWNER_HOME" ] \
+     && { [ -e "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ] \
+       || [ -L "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ]; }; then
+    return 2
   fi
   tmp="$marker.tmp.${BASHPID:-$$}"
   rm -f "$tmp" || return 1

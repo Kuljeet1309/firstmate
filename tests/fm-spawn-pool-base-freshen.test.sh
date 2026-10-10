@@ -743,6 +743,48 @@ test_pool_slot_claim_follows_the_spawn_outcome() {
   pass "a Treehouse slot claim names the launched task, refuses when unclaimable, and is dropped by a locked abort"
 }
 
+# A slot Treehouse hands out again while another task's record still exists -
+# its worker restored outside the slot, so the process lease lapsed - must stay
+# that task's. A claim whose task record is gone is a finished holder's leftover
+# and is replaced.
+test_pool_slot_claim_of_a_live_task_is_never_taken_over() {
+  local rec id out status before other_home
+
+  id='pool-slot-live-owner-r1'
+  rec=$(make_case slot-live-owner "$id")
+  read_case_record "$rec"
+  lay_out_as_pool_slot
+  other_home="$CASE_DIR/other-home"
+  mkdir -p "$other_home/state"
+  printf 'worktree=%s\n' "$POOL_DIR" > "$other_home/state/live-owner.meta"
+  printf 'task=live-owner\nhome=%s\n' "$other_home" > "$SLOT_CLAIM"
+  before=$(git -C "$POOL_DIR" rev-parse HEAD)
+  out=$(run_spawn "$id" --scout)
+  status=$?
+  [ "$status" -ne 0 ] || fail "spawn took over a slot claimed by a task whose record still exists"
+  assert_contains "$out" "claimed by live task live-owner" \
+    "spawn did not name the live claimant as the reason for refusing"
+  [ "$(cat "$SLOT_CLAIM")" = "task=live-owner"$'\n'"home=$other_home" ] \
+    || fail "spawn overwrote the live task's slot claim: $(cat "$SLOT_CLAIM")"
+  [ ! -e "$HOME_DIR/state/$id.meta" ] || fail "spawn published a record for another task's slot"
+  [ "$(git -C "$POOL_DIR" rev-parse HEAD)" = "$before" ] \
+    || fail "spawn moved the live task's slot HEAD before refusing"
+
+  id='pool-slot-finished-owner-r1'
+  rec=$(make_case slot-finished-owner "$id")
+  read_case_record "$rec"
+  lay_out_as_pool_slot
+  other_home="$CASE_DIR/other-home"
+  mkdir -p "$other_home/state"
+  printf 'task=finished-owner\nhome=%s\n' "$other_home" > "$SLOT_CLAIM"
+  out=$(run_spawn "$id" --scout)
+  status=$?
+  expect_code 0 "$status" "spawn should replace a claim whose task record is gone"$'\n'"$out"
+  grep -Fxq -- "task=$id" "$SLOT_CLAIM" \
+    || fail "spawn did not replace a finished task's leftover claim: $(cat "$SLOT_CLAIM")"
+  pass "a Treehouse slot claimed by a live task is refused, while a finished task's leftover claim is replaced"
+}
+
 publish_feature_branch() { # <branch>
   git -C "$CASE_DIR/publisher" checkout --quiet -b "$1"
   printf 'only on %s\n' "$1" > "$CASE_DIR/publisher/feature-only.txt"
@@ -876,6 +918,7 @@ test_scout_base_branch_refused_on_gerrit_forge() {
 
 test_remote_seeded_home_spawns_from_treehouse_pool
 test_pool_slot_claim_follows_the_spawn_outcome
+test_pool_slot_claim_of_a_live_task_is_never_taken_over
 test_linked_spawning_home_rejects_primary_before_refresh
 test_stale_pool_base_refreshes_before_branching
 test_named_base_branch_starts_from_that_branch

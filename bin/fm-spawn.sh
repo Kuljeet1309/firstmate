@@ -1291,6 +1291,7 @@ SPAWN_TASK_SET_LOCK_HELD=0
 SPAWN_TREEHOUSE_PROJECT_LOCK=
 SPAWN_TREEHOUSE_PROJECT_LOCK_HELD=0
 SPAWN_SLOT_CLAIMED=0
+SPAWN_SLOT_LEASED=0
 RELAUNCH_REPLACEMENT_PENDING=0
 RELAUNCH_REPLACEMENT_BUSY_GEN=
 RELAUNCH_REPLACEMENT_HARNESS=
@@ -1434,6 +1435,18 @@ spawn_abort_cleanup() {
   # already released that lock and leaves the claim for the next spawn's
   # atomic replacement rather than racing it. The release itself never removes
   # another task's claim.
+  # A slot leased for a Herdr spawn is past the base refresh and holds no task
+  # work yet, so the same pre-publication abort returns it rather than leaving a
+  # lease no record or teardown will ever release. The return is unforced, so
+  # anything unexpected in the copy keeps it leased and is reported instead.
+  if [ "$SPAWN_SLOT_LEASED" = 1 ] && [ -n "${WT:-}" ] &&
+    [ ! -e "$STATE/$ID.meta" ] && [ ! -L "$STATE/$ID.meta" ]; then
+    SPAWN_SLOT_LEASED=0
+    if [ "$SPAWN_TREEHOUSE_PROJECT_LOCK_HELD" != 1 ] ||
+      ! (cd "$PROJ_ABS" && treehouse return "$WT") >/dev/null 2>&1; then
+      echo "warning: leaving Treehouse pool slot $WT leased to aborted task $ID; inspect it and run 'treehouse return $WT' once it holds nothing to keep" >&2
+    fi
+  fi
   if [ "$SPAWN_SLOT_CLAIMED" = 1 ] && [ -n "${WT:-}" ] &&
     [ ! -e "$STATE/$ID.meta" ] && [ ! -L "$STATE/$ID.meta" ] &&
     fm_treehouse_pool_slot "$PROJ_ABS" "$WT"; then
@@ -4079,11 +4092,58 @@ spawn_send_key() { # <target> <key>
   esac
 }
 
+# Herdr restores a pane by starting a shell in the cwd it last saw for the
+# pane's top-level shell and resuming the pane's agent there. `treehouse get`
+# does not move that shell: it opens a nested subshell in the slot, so a cd sent
+# to the pane lands in the subshell, the restored worker resumes in the
+# project's primary checkout, and the slot, whose only lease was the vanished
+# subshell's process, reads available to the next acquisition. Lease the slot
+# durably to this task, leave the subshell (Treehouse leaves a leased slot
+# exactly as it is), and let spawn_enter_recorded_worktree move the top-level
+# shell itself into the copy. bin/fm-teardown.sh's `treehouse return` releases
+# the lease with the slot.
+spawn_herdr_root_shell_into_slot() {
+  local wt_real entries name path slot_name='' leased root fg i
+  wt_real=$(real_path_or_raw "$WT")
+  entries=$( (cd "$PROJ_ABS" && treehouse status --json) 2>/dev/null \
+    | jq -r '.[]? | [.name, .path] | @tsv' 2>/dev/null) || entries=
+  while IFS=$'\t' read -r name path; do
+    [ -n "$name" ] && [ -n "$path" ] || continue
+    if [ "$(real_path_or_raw "$path")" = "$wt_real" ]; then
+      slot_name=$name
+      break
+    fi
+  done <<<"$entries"
+  if [ -z "$slot_name" ]; then
+    echo "error: could not find Treehouse pool slot $WT in the pool status for $PROJ_ABS; refusing to launch a Herdr worker that a session restore would resume outside its copy; inspect window $T" >&2
+    exit 1
+  fi
+  leased=$( (cd "$PROJ_ABS" && treehouse lease "$slot_name" --lease-holder "firstmate:$ID") 2>/dev/null | tail -n 1) || leased=
+  if [ -z "$leased" ] || [ "$(real_path_or_raw "$leased")" != "$wt_real" ]; then
+    echo "error: could not lease Treehouse pool slot $slot_name ($WT) to task $ID; refusing to launch a Herdr worker that a session restore would resume outside its copy; inspect window $T" >&2
+    exit 1
+  fi
+  SPAWN_SLOT_LEASED=1
+  spawn_send_text_line "$WT_TARGET" 'exit' || {
+    echo "error: could not leave the treehouse subshell in task $ID's endpoint; refusing to launch a Herdr worker that a session restore would resume outside its copy; inspect window $T" >&2
+    exit 1
+  }
+  for i in $(seq 1 20); do
+    root=$(fm_backend_herdr_root_path "$WT_TARGET" || true)
+    fg=$(spawn_current_path "$WT_TARGET" || true)
+    if [ -n "$root" ] && [ -n "$fg" ] && [ "$(real_path_or_raw "$root")" = "$(real_path_or_raw "$fg")" ]; then
+      return 0
+    fi
+    [ "$i" -ge 20 ] || sleep 0.5
+  done
+  echo "error: task $ID's endpoint did not return to its top-level shell after leaving the treehouse subshell (top-level '${root:-unknown}', foreground '${fg:-unknown}'); refusing to launch; inspect window $T" >&2
+  exit 1
+}
+
 # Enter the exact copy recorded for this task immediately before trust setup and
-# launch. Herdr restores a pane's shell cwd from its durable tab layout, so a
-# treehouse subshell's foreground cwd is not enough to keep a later pane restart
-# out of the primary checkout. The same explicit cd gives every backend one
-# launch boundary and makes a dropped or ignored cwd change a refusal.
+# launch. The same explicit cd gives every backend one launch boundary and makes
+# a dropped or ignored cwd change a refusal; on Herdr it also moves the shell a
+# session restore starts in (see spawn_herdr_root_shell_into_slot).
 spawn_enter_recorded_worktree() {
   [ "$KIND" = secondmate ] && return 0
   spawn_send_text_line "$WT_TARGET" "cd -- $(shell_quote "$WT")" || {
@@ -4103,7 +4163,12 @@ spawn_assert_agent_worktree() {
   for i in $(seq 1 20); do
     seen=$(spawn_current_path "$WT_TARGET" || true)
     if [ -n "$seen" ] && [ "$(real_path_or_raw "$seen")" = "$expected" ]; then
-      return 0
+      [ "$SPAWN_SLOT_LEASED" = 1 ] || return 0
+      # The shell a Herdr session restore starts in must be the copy too.
+      seen=$(fm_backend_herdr_root_path "$WT_TARGET" || true)
+      if [ -n "$seen" ] && [ "$(real_path_or_raw "$seen")" = "$expected" ]; then
+        return 0
+      fi
     fi
     [ "$i" -ge 20 ] || sleep 0.5
   done
@@ -4511,11 +4576,17 @@ elif [ "$KIND" != secondmate ] && [ "$BACKEND" != orca ]; then
   # bin/fm-teardown.sh leave a slot that has since been reassigned untouched, so
   # a slot that cannot be claimed is refused here, at the cheapest point, rather
   # than launching a worker whose slot teardown could later release out from
-  # under its successor.
+  # under its successor. A slot another live task still claims is refused
+  # rather than taken over (fm_treehouse_slot_owner_claim).
   # Written under the Treehouse project lock held from before slot allocation
   # through metadata publication, so no other spawn or return sees a half-claim.
   if fm_treehouse_pool_slot "$PROJ_ABS" "$WT"; then
-    if ! fm_treehouse_slot_owner_claim "$WT" "$ID" "$FM_HOME"; then
+    claim_rc=0
+    fm_treehouse_slot_owner_claim "$WT" "$ID" "$FM_HOME" || claim_rc=$?
+    if [ "$claim_rc" -eq 2 ]; then
+      echo "error: Treehouse pool slot $WT is claimed by live task $FM_TREEHOUSE_SLOT_OWNER_ID (home $FM_TREEHOUSE_SLOT_OWNER_HOME), whose record still exists; refusing to take over another task's copy - relaunch that task in place or clean it up first; inspect window $T" >&2
+      exit 1
+    elif [ "$claim_rc" -ne 0 ]; then
       echo "error: could not claim Treehouse pool slot $WT for task $ID; refusing to launch a worker whose slot cannot later be proved to be its own; inspect window $T" >&2
       exit 1
     fi
@@ -4525,11 +4596,14 @@ fi
 if [ "$RELAUNCH" -eq 0 ] && [ "$KIND" != secondmate ]; then
   freshen_spawn_worktree_base "$WT" "$BASE_BRANCH" || exit 1
 fi
+if [ "$RELAUNCH" -eq 0 ] && [ "$BACKEND" = herdr ] && [ "$SPAWN_SLOT_CLAIMED" = 1 ]; then
+  spawn_herdr_root_shell_into_slot
+fi
 
 # Re-assert the durable task copy after either treehouse acquisition or endpoint
-# adoption. This also updates Herdr's restored pane shell before any harness is
-# started, so a later host restart inherits the task worktree rather than the
-# tab's original project directory.
+# adoption. On Herdr, once the treehouse subshell is gone, this also moves the
+# shell a session restore starts in, so a later restart inherits the task
+# worktree rather than the tab's original project directory.
 spawn_enter_recorded_worktree
 spawn_assert_agent_worktree
 
