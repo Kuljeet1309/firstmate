@@ -1,0 +1,4 @@
+ok - real herdr E2E: a spawned worker's top-level pane shell, which Herdr restores, is its leased slot
+ok - real herdr E2E: after a session restore the worker's pane comes back in its own slot, still leased
+ok - real herdr E2E: the next spawn after the restore gets another slot and leaves restA's claim alone
+ok - real herdr E2E: teardown returns the leased slot to the pool

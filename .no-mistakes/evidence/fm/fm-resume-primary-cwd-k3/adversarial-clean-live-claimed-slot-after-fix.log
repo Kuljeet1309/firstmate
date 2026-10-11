@@ -1,0 +1,22 @@
+--- before spawn: pool status
+base  main  (repository default)
+1     available    ~/.treehouse/scratch-project-c0317e/1/scratch-project  [fm/oldsplit]
+old slot /home/user1kuljeet/.treehouse/scratch-project-c0317e/1/scratch-project HEAD 7c406c64b2380a23c3787dcdf04d4d553a3583ca fm/oldsplit (initial)
+--- fm-spawn newtask rc=0
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-adv.cTIPtb/home
+warning: /tmp/fm-adv.cTIPtb/home/data/newtask/launch-brief.md records no ship branch; defaulting to legacy branch fm/newtask
+warning: /tmp/fm-adv.cTIPtb/home/data/newtask/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+--- after spawn: pool status
+base  main  (repository default)
+1     leased       ~/.treehouse/scratch-project-c0317e/1/scratch-project  [fm/oldsplit]  (held by firstmate:oldspeed)
+2     leased       ~/.treehouse/scratch-project-c0317e/2/scratch-project  (detached)  (held by firstmate:newtask)
+                   bash (436765), sleep (439075)
+newtask worktree: /home/user1kuljeet/.treehouse/scratch-project-c0317e/2/scratch-project
+old slot HEAD now 7c406c64b2380a23c3787dcdf04d4d553a3583ca fm/oldsplit (initial)
+old slot claim:
+task=oldspeed
+home=/tmp/fm-adv.cTIPtb/home
+ok - live task copy HEAD unchanged
+ok - oldspeed claim intact
+ok - newtask got a different slot
+ok - old slot now leased to firstmate:oldspeed
