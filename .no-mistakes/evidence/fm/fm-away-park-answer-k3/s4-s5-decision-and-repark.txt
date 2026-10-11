@@ -1,0 +1,25 @@
+# S4 decision delivery: fm-send.sh lab-ring --resolve-key nm-01LABRUN-review '...' output:
+fm-gate-refuse: gate agent lifecycle permitted only against lab home <LAB>
+fm-send rc=0
+# S5 timeline: 14:49:09 run record -> running; 14:49:29 .gate-rung marker cleared by check at 14:49:27;
+# 14:49:32 identical park restored; triage log:
+[2026-10-11T14:44:34+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+[2026-10-11T14:46:52+0530] absorbed heartbeat (no captain-relevant change)
+[2026-10-11T14:47:54+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+[2026-10-11T14:49:14+0530] absorbed non-terminal stale timer reset: fm:fm-lab-ring
+[2026-10-11T14:49:43+0530] absorbed non-terminal stale timer reset: fm:fm-lab-ring
+[2026-10-11T14:49:49+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+# inbox after:
+<LAB>/state/lab-ring.inbox:
+handled
+
+<LAB>/state/lab-ring.inbox/handled:
+001.msg
+002.msg
+003.msg
+004.msg
+# status log:
+blocked: the test agent has gone quiet; need you to choose how to unstick it
+needs-decision [key=scope-q]: should the fix also cover the CLI path
+needs-decision [key=nm-01LABRUN-review]: ask-user findings=r2
+resolved [key=nm-01LABRUN-review] [at=1791710310]: answered: Decision for nm-01LABRUN-review (step review, run 01LABRUN): action fix, findings r2, apply with: no-mistakes axi respond --run 01LABRUN --step rev [truncated]

@@ -1,0 +1,34 @@
+--- watcher start 14:43:41
+check: rearm-resurface
+--- watcher exit rc=0 14:43:42
+--- watcher start 14:43:46
+stale: fm:fm-lab-ring
+--- watcher exit rc=0 14:44:13
+--- watcher start 14:44:17
+signal: <LAB>/state/lab-ring.status
+--- watcher exit rc=0 14:45:18
+--- watcher start 14:45:23
+stale: fm:fm-lab-ring
+--- watcher exit rc=0 14:45:35
+--- watcher start 14:45:40
+signal: <LAB>/state/lab-ring.status
+--- watcher exit rc=0 14:47:45
+--- watcher start 14:47:50
+signal: <LAB>/state/lab-ring.status
+--- watcher exit rc=0 14:48:38
+--- watcher start 14:48:43
+stale: fm:fm-lab-ring
+--- watcher exit rc=0 14:49:08
+--- watcher start 14:49:13
+stale: fm:fm-lab-ring (idle 22s, possible wedge, escalation 1)
+--- watcher exit rc=0 14:49:36
+--- watcher start 14:49:41
+stale: fm:fm-lab-ring
+--- watcher exit rc=0 14:50:16
+--- watcher start 14:50:21
+stale: fm:fm-lab-ring (idle 21s, possible wedge, escalation 1)
+--- watcher exit rc=0 14:50:45
+--- watcher start 14:50:49
+stale: fm:fm-lab-ring
+--- watcher exit rc=0 14:51:24
+--- watcher start 14:51:29

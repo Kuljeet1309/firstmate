@@ -1,0 +1,27 @@
+# S6 away posture: fm-afk-contract.sh enter (lab home), then run cycled running -> identical park
+Away posture recorded at 2026-10-11T09:20:10Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. No away instructions were recorded; the away session acts on standing authority only, and anything that needs you waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-11T09:20:10Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words: (none)
+afk rc=0
+# triage log:
+[2026-10-11T14:50:23+0530] absorbed non-terminal stale timer reset: fm:fm-lab-ring
+[2026-10-11T14:50:51+0530] absorbed non-terminal stale timer reset: fm:fm-lab-ring
+[2026-10-11T14:50:58+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+# inbox:
+<LAB>/state/lab-ring.inbox:
+handled
+
+<LAB>/state/lab-ring.inbox/handled:
+001.msg
+002.msg
+003.msg
+004.msg
+005.msg
+schema=fm-task-inbox.v1
+at=2026-10-11T09:20:56Z
+--
+Your no-mistakes run 01LABRUN is parked at review: 2 finding(s) on ask-user findings, which are never yours to answer. If firstmate already sent you its decision for this gate, apply it now with `no-mistakes axi respond`; otherwise escalate the ask-user findings exactly as your instructions say for an ask-user gate, then end your turn.

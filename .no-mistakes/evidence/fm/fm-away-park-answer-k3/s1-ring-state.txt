@@ -1,0 +1,14 @@
+# crew-state verdict (real bin/fm-crew-state.sh over stubbed no-mistakes run record)
+state: parked · source: run-step · parked at review: 2 finding(s) · ask-user: authority decision · run: 01LABRUN
+# watcher triage log
+[2026-10-11T14:44:34+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+# inbox record delivered
+schema=fm-task-inbox.v1
+at=2026-10-11T09:14:32Z
+--
+Your no-mistakes run 01LABRUN is parked at review: 2 finding(s) on ask-user findings, which are never yours to answer. If firstmate already sent you its decision for this gate, apply it now with `no-mistakes axi respond`; otherwise escalate the ask-user findings exactly as your instructions say for an ask-user gate, then end your turn.
+# .gate-rung marker
+01LABRUN	parked at review: 2 finding(s)
+# status log after worker reacted
+blocked: the test agent has gone quiet; need you to choose how to unstick it
+needs-decision [key=nm-01LABRUN-review]: ask-user findings=r2

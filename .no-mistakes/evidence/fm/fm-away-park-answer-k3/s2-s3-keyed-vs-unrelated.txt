@@ -1,0 +1,19 @@
+# S2: keyed escalation open, .gate-rung marker removed by hand at 14:45:20; check ran at 14:46:56 and wrote no record:
+(inbox held only handled/001.msg until 14:47:54)
+
+# S3: status log replaced at 14:47:12 with an UNRELATED open needs-decision only
+# triage log:
+[2026-10-11T14:44:34+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+[2026-10-11T14:46:52+0530] absorbed heartbeat (no captain-relevant change)
+[2026-10-11T14:47:54+0530] parked ask-user gate rung to its worker: lab-ring run=01LABRUN result=0
+# inbox:
+<LAB>/state/lab-ring.inbox:
+handled
+
+<LAB>/state/lab-ring.inbox/handled:
+001.msg
+002.msg
+# status log after worker reacted to ring 002:
+blocked: the test agent has gone quiet; need you to choose how to unstick it
+needs-decision [key=scope-q]: should the fix also cover the CLI path
+needs-decision [key=nm-01LABRUN-review]: ask-user findings=r2
