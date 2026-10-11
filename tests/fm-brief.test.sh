@@ -1066,8 +1066,8 @@ test_workers_wait_without_spending_turns() {
   assert_grep "issue the same foreground call again" "$brief" \
     "the no-mistakes DOD must reattach with the same foreground call"
   assert_no_grep "background the drive call" "$brief" "the no-mistakes DOD still backgrounds the drive call"
-  assert_grep "unless your own validation run is still live" "$brief" \
-    "a decision wait still ends the turn while the worker's own run is live"
+  assert_grep "After you append \`needs-decision:\`, or \`blocked:\` while no validation run of yours is still live" "$brief" \
+    "the Waiting section does not end the turn after needs-decision, or after blocked only once no run of the worker's is live"
   assert_grep "Stay with your run until it ends or parks at a gate" "$brief" \
     "the no-mistakes DOD does not keep the worker with its live run"
   assert_grep "a \`blocked:\` report never ends your turn" "$brief" \
