@@ -1611,9 +1611,10 @@ fm_treehouse_slot_owner_marker() {  # <worktree>
 # home is never replaced: Treehouse hands out a slot once its process lease
 # lapses (for example after a session restore restarts the worker outside the
 # slot), so a fresh acquisition is no proof the previous task is finished.
-# Returns 2 for that refusal, leaving FM_TREEHOUSE_SLOT_OWNER_ID and
-# FM_TREEHOUSE_SLOT_OWNER_HOME naming the live claimant, and 1 for any other
-# failure.
+# bin/fm-spawn.sh leases such slots before acquiring, so this refusal is the
+# backstop for a slot Treehouse handed out anyway. Returns 2 for that refusal,
+# leaving FM_TREEHOUSE_SLOT_OWNER_ID and FM_TREEHOUSE_SLOT_OWNER_HOME naming the
+# live claimant, and 1 for any other failure.
 fm_treehouse_slot_owner_claim() {  # <worktree> <task-id> <home>
   local worktree=$1 id=$2 home=$3 marker tmp
   [ -n "$id" ] || return 1
@@ -1624,10 +1625,7 @@ fm_treehouse_slot_owner_claim() {  # <worktree> <task-id> <home>
      && { [ ! -f "$marker" ] || [ -L "$marker" ]; }; then
     return 1
   fi
-  fm_treehouse_slot_owner_state "$worktree" "$id"
-  if [ "$FM_TREEHOUSE_SLOT_OWNER" = other ] && [ -n "$FM_TREEHOUSE_SLOT_OWNER_HOME" ] \
-     && { [ -e "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ] \
-       || [ -L "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ]; }; then
+  if fm_treehouse_slot_owner_live_other "$worktree" "$id"; then
     return 2
   fi
   tmp="$marker.tmp.${BASHPID:-$$}"
@@ -1637,6 +1635,16 @@ fm_treehouse_slot_owner_claim() {  # <worktree> <task-id> <home>
     printf 'home=%s\n' "$home"
   } > "$tmp" 2>/dev/null || { rm -f "$tmp"; return 1; }
   mv -f "$tmp" "$marker" 2>/dev/null || { rm -f "$tmp"; return 1; }
+}
+
+# Succeeds when the claim on a pool slot names a task other than <task-id> whose
+# record still exists in its recorded home, leaving FM_TREEHOUSE_SLOT_OWNER_ID
+# and FM_TREEHOUSE_SLOT_OWNER_HOME naming that live claimant.
+fm_treehouse_slot_owner_live_other() {  # <worktree> <task-id>
+  fm_treehouse_slot_owner_state "$1" "$2"
+  [ "$FM_TREEHOUSE_SLOT_OWNER" = other ] && [ -n "$FM_TREEHOUSE_SLOT_OWNER_HOME" ] \
+    && { [ -e "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ] \
+      || [ -L "$FM_TREEHOUSE_SLOT_OWNER_HOME/state/$FM_TREEHOUSE_SLOT_OWNER_ID.meta" ]; }
 }
 
 # Read the claim on a pool slot and compare it with a task id.

@@ -674,12 +674,14 @@ The underlying harness processes and live agent registrations do not survive.
 A restored same-labeled tab with a missing pane or no registered agent is a husk.
 
 Create replaces only a confidently dead or no-agent husk, creates the replacement before closing the old tab, and refuses live or unknown states.
+This prevents closing the workspace's last tab before a replacement exists.
 
 A restored pane's shell starts in the working directory Herdr last saw for the pane's top-level shell, and an agent Herdr resumes runs there ([verification](verification/runtime-backends.md) "Restored pane working directory").
 `treehouse get` enters its slot in a nested subshell, which never moves that directory.
 So after acquiring a Treehouse pool slot, a Herdr spawn leases the slot durably to its task, leaves the subshell, and moves the top-level shell into the slot before launch.
 A restored worker therefore resumes in its own copy, and the slot stays its own until teardown's `treehouse return` releases the lease.
-This prevents closing the workspace's last tab before a replacement exists.
+A slot of a task spawned without that lease reads available once its restored worker leaves it.
+Before any spawn runs `treehouse get`, it leases each unleased slot that a task with an existing record still claims to that task, and Treehouse does not hand that slot out.
 
 ### Stale agent registrations
 

@@ -1443,7 +1443,7 @@ spawn_abort_cleanup() {
     [ ! -e "$STATE/$ID.meta" ] && [ ! -L "$STATE/$ID.meta" ]; then
     SPAWN_SLOT_LEASED=0
     if [ "$SPAWN_TREEHOUSE_PROJECT_LOCK_HELD" != 1 ] ||
-      ! (cd "$PROJ_ABS" && treehouse return "$WT") >/dev/null 2>&1; then
+      ! (cd "$PROJ_ABS" && treehouse return --if-lease-holder "firstmate:$ID" "$WT") </dev/null >/dev/null 2>&1; then
       echo "warning: leaving Treehouse pool slot $WT leased to aborted task $ID; inspect it and run 'treehouse return $WT' once it holds nothing to keep" >&2
     fi
   fi
@@ -4140,6 +4140,28 @@ spawn_herdr_root_shell_into_slot() {
   exit 1
 }
 
+# A slot whose worker a session restore restarted outside it has lost its
+# process lease and reads available, and `treehouse get` resets whichever
+# available slot it hands out. So before the pane's acquisition, and under the
+# Treehouse project lock, lease every unleased slot whose claim names another
+# task whose record still exists to that task. Treehouse then never hands it
+# out, and bin/fm-teardown.sh's `treehouse return` releases the lease with the
+# slot. A slot that cannot be leased refuses the spawn before anything is reset.
+spawn_lease_live_claimed_slots() {
+  local entries name path lease_id leased
+  entries=$( (cd "$PROJ_ABS" && treehouse status --json) 2>/dev/null \
+    | jq -r '.[]? | [.name, .path, (.lease_id // "")] | @tsv' 2>/dev/null) || entries=
+  while IFS=$'\t' read -r name path lease_id; do
+    [ -n "$name" ] && [ -n "$path" ] && [ -z "$lease_id" ] || continue
+    fm_treehouse_slot_owner_live_other "$path" "$ID" || continue
+    leased=$( (cd "$PROJ_ABS" && treehouse lease "$name" --lease-holder "firstmate:$FM_TREEHOUSE_SLOT_OWNER_ID") </dev/null 2>/dev/null | tail -n 1) || leased=
+    if [ -z "$leased" ] || [ "$(real_path_or_raw "$leased")" != "$(real_path_or_raw "$path")" ]; then
+      echo "error: Treehouse pool slot $name ($path) is claimed by live task $FM_TREEHOUSE_SLOT_OWNER_ID (home $FM_TREEHOUSE_SLOT_OWNER_HOME) but carries no lease, and leasing it to that task failed; refusing to run treehouse get, which could hand out and reset that copy - run 'treehouse lease $name --lease-holder firstmate:$FM_TREEHOUSE_SLOT_OWNER_ID' from $PROJ_ABS or clean that task up first" >&2
+      exit 1
+    fi
+  done <<<"$entries"
+}
+
 # Enter the exact copy recorded for this task immediately before trust setup and
 # launch. The same explicit cd gives every backend one launch boundary and makes
 # a dropped or ignored cwd change a refusal; on Herdr it also moves the shell a
@@ -4506,6 +4528,7 @@ elif [ "$RELAUNCH" -eq 1 ]; then
   fi
   [ "$KIND" = secondmate ] || validate_spawn_worktree "relaunch" "$T"
 elif [ "$KIND" != secondmate ] && [ "$BACKEND" != orca ]; then
+  spawn_lease_live_claimed_slots
   spawn_send_text_line "$WT_TARGET" 'treehouse get'
 
   # Wait for the treehouse subshell: the pane's cwd moves from the project to the worktree.
@@ -4576,15 +4599,16 @@ elif [ "$KIND" != secondmate ] && [ "$BACKEND" != orca ]; then
   # bin/fm-teardown.sh leave a slot that has since been reassigned untouched, so
   # a slot that cannot be claimed is refused here, at the cheapest point, rather
   # than launching a worker whose slot teardown could later release out from
-  # under its successor. A slot another live task still claims is refused
-  # rather than taken over (fm_treehouse_slot_owner_claim).
+  # under its successor. A slot another live task still claims was leased to
+  # it before acquisition (spawn_lease_live_claimed_slots); if Treehouse handed
+  # one out anyway, the claim is left alone and the spawn refuses.
   # Written under the Treehouse project lock held from before slot allocation
   # through metadata publication, so no other spawn or return sees a half-claim.
   if fm_treehouse_pool_slot "$PROJ_ABS" "$WT"; then
     claim_rc=0
     fm_treehouse_slot_owner_claim "$WT" "$ID" "$FM_HOME" || claim_rc=$?
     if [ "$claim_rc" -eq 2 ]; then
-      echo "error: Treehouse pool slot $WT is claimed by live task $FM_TREEHOUSE_SLOT_OWNER_ID (home $FM_TREEHOUSE_SLOT_OWNER_HOME), whose record still exists; refusing to take over another task's copy - relaunch that task in place or clean it up first; inspect window $T" >&2
+      echo "error: treehouse get handed out pool slot $WT, which is claimed by live task $FM_TREEHOUSE_SLOT_OWNER_ID (home $FM_TREEHOUSE_SLOT_OWNER_HOME), whose record still exists; refusing to launch over it and leaving that task's claim in place, but treehouse get may already have reset that copy and window $T is still in it - inspect both, then relaunch that task in place or clean it up" >&2
       exit 1
     elif [ "$claim_rc" -ne 0 ]; then
       echo "error: could not claim Treehouse pool slot $WT for task $ID; refusing to launch a worker whose slot cannot later be proved to be its own; inspect window $T" >&2
