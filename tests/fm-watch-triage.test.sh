@@ -3577,6 +3577,7 @@ test_parked_ask_user_gate_rings_its_own_worker() {
   local human='state: parked · source: run-step · parked at awaiting_approval: 2 finding(s) · ask-user: authority decision · run: 01RUNGATE'
   local later='state: parked · source: run-step · parked at fix_review: 1 finding(s) · ask-user: authority decision · run: 01RUNGATE'
   local crewmate='state: parked · source: run-step · parked at awaiting_approval: 2 finding(s) · run: 01RUNGATE'
+  local working='state: working · source: run-step · ci running'
   local blocked='blocked: the test agent has gone quiet; need you to choose how to unstick it'
   window="test:fm-wedge"; key=$(printf '%s' "$window" | tr ':/.' '___')
 
@@ -3621,6 +3622,20 @@ test_parked_ask_user_gate_rings_its_own_worker() {
   grep -F 'parked at fix_review: 1 finding(s)' "$rec" >/dev/null \
     || fail "a later park's record does not name that park: $(cat "$rec")"
 
+  # The run leaves its park and later parks again exactly as before: that is a
+  # new park, and rings again.
+  mkdir -p "$inbox/handled" && mv "$rec" "$inbox/handled/"
+  age_gate_check "$state" "$key"
+  wedge_threshold_round "$state" "$fakebin" "$out" "$capture" "$window" "$working" absorb \
+    || fail "the watcher exited on a run that left its park: $(cat "$out")"
+  [ "$(find "$inbox" -maxdepth 1 -name '*.msg' | wc -l | tr -d ' ')" -eq 0 ] \
+    || fail "a run that left its park was rung as parked"
+  age_gate_check "$state" "$key"
+  wedge_threshold_round "$state" "$fakebin" "$out" "$capture" "$window" "$later" absorb \
+    || fail "the watcher exited instead of ringing a repeated park: $(cat "$out")"
+  [ "$(find "$inbox" -maxdepth 1 -name '*.msg' | wc -l | tr -d ' ')" -eq 1 ] \
+    || fail "a park that reads the same as an earlier, ended one was not rung to its worker"
+
   # Away posture: the ring is what lets the supervision host's decision reach
   # the gate, so the record does not silence it.
   dir=$(wedge_threshold_fixture parked-gate-ring-away "$blocked" 0)
@@ -3642,6 +3657,16 @@ test_parked_ask_user_gate_rings_its_own_worker() {
     || fail "an already-escalated park changed the watcher's triage: $(cat "$out")"
   [ ! -d "$state/wedge.inbox" ] || [ "$(find "$state/wedge.inbox" -maxdepth 1 -name '*.msg' | wc -l | tr -d ' ')" -eq 0 ] \
     || fail "a worker that already escalated its park was rung again"
+  # An open `needs-decision` about something else does not stand for this run's
+  # escalation, so the park is still rung.
+  dir=$(wedge_threshold_fixture parked-gate-ring-unrelated \
+    'needs-decision [key=scope-q]: should the fix also cover the CLI path' 0)
+  state="$dir/state"; fakebin="$dir/fakebin"; out="$dir/watch.out"; capture="$dir/pane.txt"
+  age_gate_check "$state" "$key"
+  wedge_threshold_round "$state" "$fakebin" "$out" "$capture" "$window" "$human" absorb \
+    || fail "the watcher exited instead of ringing past an unrelated decision: $(cat "$out")"
+  [ "$(find "$state/wedge.inbox" -maxdepth 1 -name '*.msg' 2>/dev/null | wc -l | tr -d ' ')" -eq 1 ] \
+    || fail "an open decision about something else kept the park from reaching its worker"
   dir=$(wedge_threshold_fixture parked-gate-ring-crewmate "$blocked" 0)
   state="$dir/state"; fakebin="$dir/fakebin"; out="$dir/watch.out"; capture="$dir/pane.txt"
   age_gate_check "$state" "$key"

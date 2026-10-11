@@ -1346,13 +1346,14 @@ wedge_wait_evidence() {  # <task> -> one wait_record on stdout
 # supervision host's decision reach a gate at all.
 # Cost: one fm-crew-state.sh read, at most once per window per
 # STALE_ESCALATE_SECS (the .gate-check- marker's mtime; a window with no marker
-# only starts that clock, so a pane quiet for a moment spends nothing), and never while the
-# worker's own log holds an open `needs-decision` (its answer is owed by
-# firstmate and arrives through the inbox on its own) or an unhandled inbox
-# record is still being delivered. Each park is rung once: the .gate-rung-
-# marker holds "<run>\t<parked-at>" for the last park rung, so a second park
-# of the same run rings again while a lane quiet after its ring falls through
-# to the ordinary stale triage.
+# only starts that clock, so a pane quiet for a moment spends nothing), and never while an
+# unhandled inbox record is still being delivered. A park whose run the worker's
+# own log already escalated (an open `needs-decision` keyed `nm-<run>-`) is not
+# rung: its answer is owed by firstmate and arrives through the inbox on its own.
+# Each park is rung once: the .gate-rung- marker holds "<run>\t<parked-at>" for
+# the last park rung and is cleared by any read that finds no human-owed park,
+# so every later park rings again, even one that reads the same, while a lane
+# quiet after its ring falls through to the ordinary stale triage.
 # 0 iff a record was written (the caller then skips this poll's stale triage,
 # which the worker's own turn now owns); 1 otherwise.
 parked_gate_ring_owner() {  # <window> <task> <window-key>
@@ -1365,12 +1366,15 @@ parked_gate_ring_owner() {  # <window> <task> <window-key>
     return 1
   fi
   [ "$(age_of "$check")" -ge "$STALE_ESCALATE_SECS" ] || return 1
-  status_has_open_needs_decision "$STATE/$task.status" && return 1
   [ -z "$(fm_task_inbox_oldest_unhandled "$STATE" "$task" 2>/dev/null)" ] || return 1
   touch "$check" 2>/dev/null || return 1
-  gate=$(crew_gate_human_decision "$task") || return 1
-  [ "$(cat "$rung" 2>/dev/null || true)" != "$gate" ] || return 1
+  if ! gate=$(crew_gate_human_decision "$task"); then
+    rm -f "$rung"
+    return 1
+  fi
   run=${gate%%$'\t'*}
+  status_has_open_needs_decision "$STATE/$task.status" "$run" && return 1
+  [ "$(cat "$rung" 2>/dev/null || true)" != "$gate" ] || return 1
   parked=${gate#*$'\t'}
   rec=$(fm_task_inbox_write "$STATE" "$task" "Your no-mistakes run $run is ${parked:-parked} on ask-user findings, which are never yours to answer. If firstmate already sent you its decision for this gate, apply it now with \`no-mistakes axi respond\`; otherwise escalate the ask-user findings exactly as your instructions say for an ask-user gate, then end your turn.") || return 1
   printf '%s' "$gate" > "$rung" || true
